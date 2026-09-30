@@ -1,0 +1,26 @@
+# Source: Prevention of Money-laundering (Maintenance of Records) Rules, 2005 (as amended), text as published by FIU-IND:
+# https://fiuindia.gov.in/files/AML_Legislation/notification.html  (retrieved 30-Sep-2026)
+# Excerpt used as the "regulatory document" for the prototype. Clause IDs in [brackets] are added for parsing.
+# The opening words of Rule 3(1) are repeated in front of (A) and (B) so each clause reads on its own; wording is otherwise unchanged.
+
+[R2.1.c] "Director" means the Director appointed under sub-section (1) of section 49 of the Act for the purposes of sections 12, 12A and 13 of the Act;
+
+[R2.1.f] "Principal Officer" means an officer designated by a reporting entity; Provided that such officer shall be an officer at the management level;
+
+[R2.1.h] "transaction" means a purchase, sale, loan, pledge, gift, transfer, delivery or the arrangement thereof and includes - (i) opening of an account; (ii) deposits, withdrawal, exchange or transfer of funds in whatever currency, whether in cash or by cheque, payment order or other instruments or by electronic or other non-physical means;
+
+[R3.1.A] Every reporting entity shall maintain the record of all transactions including, the record of all cash transactions of the value of more than ten lakhs rupees or its equivalent in foreign currency;
+
+[R3.1.B] Every reporting entity shall maintain the record of all transactions including, the record of all series of cash transactions integrally connected to each other which have been individually valued below rupees ten lakhs or its equivalent in foreign currency where such series of transactions have taken place within a month and the monthly aggregate exceeds an amount of ten lakh rupees or its equivalent in foreign currency;
+
+[R4] The records referred to in rule 3 shall contain all necessary information specified by the Regulator to permit reconstruction of individual transaction including the following information:- (a) the nature of the transactions; (b) the amount of the transaction and the currency in which it was denominated; (c) the date on which the transaction was conducted; and (d) the parties to the transaction.
+
+[R7.2] The Principal Officer shall furnish the information referred to in clauses (A), (B), (BA), (C), (D), (E), (F) of sub-rule (1) of rule 3 to the Director on the basis of information available with the reporting entity. A copy of such information shall be retained by the Principal Officer for the purposes of official record.
+
+[R7.3] Every reporting entity shall evolve an internal mechanism having regard to any guidelines issued by the Director in consultation with, its regulator, for detecting the transactions referred to in clauses (A),(B),(BA),(C) and (D) of sub-rule (1) of rule 3 and for furnishing information about such transactions in such form as may be directed by the Director in consultation with, its Regulator.
+
+[R8.1] The Principal Officer of a reporting entity shall furnish the information in respect of transactions referred to in clauses (A), (B), (BA), (C) and (E) of sub-rule (1) of rule 3 every month to the Director by the 15th day of the succeeding month.
+
+[R8.4] For the purpose of this rule, delay of each day in not reporting a transaction or delay of each day in rectifying a mis-reported transaction beyond the time limit as specified in this rule shall constitute a separate violation.
+
+[R11] If any question arises relating to the interpretation of these rules, the matter shall be referred to the Central Government and the decision of the Central Government shall be final.

@@ -1,0 +1,30 @@
+gap_id,kind,severity,target,summary,justify_sources,fulfil_sources
+G-A03,INTERPRETATION,high,A03,The aggregation window is the calendar month.,S15 S06 S03,S11 S16 S14
+G-A04,INTERPRETATION,high,A04,A cash transaction is one with CoreOne transaction type 'C'.,S05 S13 S12,S08 S07 S14
+G-A05,INTERPRETATION,high,A05,Only Branch Teller and Cash Deposit Machine channels count as cash.,S05 S13 S12,S08 S14 S07
+G-A06,POINTER,medium,A06,Cash deposits through Cash Deposit Machines are in scope.,S05 S12 S04,S16 S08 S14
+G-A07,INTERPRETATION,high,A07,ATM cash withdrawals are excluded.,S05 S04 S13,S08 S16 S14
+G-A08,INTERPRETATION,high,A08,Connected transactions are grouped per customer across all of that customer's accounts.,S01 S05 S03,S09 S07 S14
+G-A09,HIDDEN,medium,A09,Customers are identified by the UCIC.,S02 S15 S01,S09 S14 S07
+G-A10,INTERPRETATION,high,A10,"Debits and credits are aggregated separately, each tested against the threshold.",S01 S05 S15,S08 S14 S16
+G-A11,HIDDEN,high,A11,"Transactions below INR 50,000 inside a reportable series are not listed.",S01 S02 S03,S16 S14 S10
+G-A12,HIDDEN,high,A12,Transfers between the bank's own internal accounts are excluded.,S13 S04 S01,S16 S14 S10
+G-A14,POINTER,medium,A14,The conversion uses the Treasury card rate of the transaction date.,S06 S15 S03,S16 S08 S07
+G-A15,INTERPRETATION,high,A15,Walk-in customers' cash transactions are grouped by the PAN on the voucher.,S01 S03 S05,S14 S09 S08
+G-A17,INTERPRETATION,medium,A17,The nature of a transaction is expressed as deposit or withdrawal.,S02 S01 S05,S08 S07 S14
+G-A18,INTERPRETATION,medium,A18,"Each reported transaction carries account number, customer name and branch code.",S02 S01 S03,S07 S09 S08
+G-A19,HIDDEN,low,A19,Transaction attributes come from CoreOne TXN_HIST.,,S07 S08 S10
+G-A20,HIDDEN,low,A20,"Customer name comes from CUST_MASTER, joined on UCIC.",,S09 S07 S10
+G-A21,POINTER,medium,A21,The report uses FIU-IND's account-based XML format.,S02 S03 S01,S14 S07 S09
+G-A22,POINTER,medium,A22,Reports must pass FIU-IND's validation utility before submission.,S02 S03 S01,S14 S10 S09
+G-A24,HIDDEN,low,A24,A draft is produced by the 5th working day for the Principal Officer's review.,S16 S04 S02,S11 S16 S14
+G-A25,INTERPRETATION,low,A25,Errors found after submission are corrected with a replacement report.,S02 S15 S06,S11 S08 S07
+G-open-transaction_parties,OPEN_TERM_UNFILLED,high,concept:transaction parties,"'the parties to the transaction' (R4) is not defined and the BRD never pins it down: Account holder only, or also a third party who deposits the cash.",S01 S05 S02,S08 S07 S09
+G-data-UCIC_for_each_account,DATA_UNMAPPED,medium,data:UCIC for each account,"'UCIC for each account' is needed by A08, A09, A20 but no mapping provides it.",,S09 S07 S14
+G-data-debit-credit_indicator,DATA_UNMAPPED,medium,data:debit/credit indicator,"'debit/credit indicator' is needed by A10, A17 but no mapping provides it.",,S08 S10 S07
+G-data-internal_account_flag,DATA_UNMAPPED,medium,data:internal account flag,'internal account flag' is needed by A12 but no mapping provides it.,,S07 S09 S10
+G-data-Treasury_card_rate_by_date,DATA_UNMAPPED,medium,data:Treasury card rate by date,'Treasury card rate by date' is needed by A14 but no mapping provides it.,,S10 S08 S07
+G-data-PAN_on_voucher,DATA_UNMAPPED,medium,data:PAN on voucher,'PAN on voucher' is needed by A15 but no mapping provides it.,,S14 S10 S08
+G-data-branch_code,DATA_UNMAPPED,medium,data:branch code,'branch code' is needed by A18 but no mapping provides it.,,S07 S09 S08
+G-uncovered-R7.2,OBLIGATION_UNCOVERED,medium,R7.2,"No BRD requirement implements this obligation: The Principal Officer shall furnish the information referred to in clauses (A), (B), (BA), (C), (D), (E), (F) of sub-rule (1) of rule 3 to the Director on the b",S15 S16 S06,S11 S16 S10
+G-uncovered-R11,OBLIGATION_UNCOVERED,low,R11,"Meta-provision: tells you who holds interpretation authority. If any question arises relating to the interpretation of these rules, the matter shall be referred to the Central Government and the decision of the Central Gov",S16 S15 S06,S16 S11 S09

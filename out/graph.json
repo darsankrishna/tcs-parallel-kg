@@ -1,0 +1,2838 @@
+{
+ "directed": true,
+ "multigraph": true,
+ "graph": {},
+ "nodes": [
+  {
+   "kind": "Provision",
+   "label": "R2.1.c",
+   "text": "\"Director\" means the Director appointed under sub-section (1) of section 49 of the Act for the purposes of sections 12, 12A and 13 of the Act;",
+   "obligation": false,
+   "id": "R2.1.c"
+  },
+  {
+   "kind": "Provision",
+   "label": "R2.1.f",
+   "text": "\"Principal Officer\" means an officer designated by a reporting entity; Provided that such officer shall be an officer at the management level;",
+   "obligation": false,
+   "id": "R2.1.f"
+  },
+  {
+   "kind": "Provision",
+   "label": "R2.1.h",
+   "text": "\"transaction\" means a purchase, sale, loan, pledge, gift, transfer, delivery or the arrangement thereof and includes - (i) opening of an account; (ii) deposits, withdrawal, exchange or transfer of funds in whatever currency, whether in cash or by cheque, payment order or other instruments or by electronic or other non-physical means;",
+   "obligation": false,
+   "id": "R2.1.h"
+  },
+  {
+   "kind": "Provision",
+   "label": "R3.1.A",
+   "text": "Every reporting entity shall maintain the record of all transactions including, the record of all cash transactions of the value of more than ten lakhs rupees or its equivalent in foreign currency;",
+   "obligation": true,
+   "id": "R3.1.A"
+  },
+  {
+   "kind": "Provision",
+   "label": "R3.1.B",
+   "text": "Every reporting entity shall maintain the record of all transactions including, the record of all series of cash transactions integrally connected to each other which have been individually valued below rupees ten lakhs or its equivalent in foreign currency where such series of transactions have taken place within a month and the monthly aggregate exceeds an amount of ten lakh rupees or its equivalent in foreign currency;",
+   "obligation": true,
+   "id": "R3.1.B"
+  },
+  {
+   "kind": "Provision",
+   "label": "R4",
+   "text": "The records referred to in rule 3 shall contain all necessary information specified by the Regulator to permit reconstruction of individual transaction including the following information:- (a) the nature of the transactions; (b) the amount of the transaction and the currency in which it was denominated; (c) the date on which the transaction was conducted; and (d) the parties to the transaction.",
+   "obligation": true,
+   "id": "R4"
+  },
+  {
+   "kind": "Provision",
+   "label": "R7.2",
+   "text": "The Principal Officer shall furnish the information referred to in clauses (A), (B), (BA), (C), (D), (E), (F) of sub-rule (1) of rule 3 to the Director on the basis of information available with the reporting entity. A copy of such information shall be retained by the Principal Officer for the purposes of official record.",
+   "obligation": true,
+   "id": "R7.2"
+  },
+  {
+   "kind": "Provision",
+   "label": "R7.3",
+   "text": "Every reporting entity shall evolve an internal mechanism having regard to any guidelines issued by the Director in consultation with, its regulator, for detecting the transactions referred to in clauses (A),(B),(BA),(C) and (D) of sub-rule (1) of rule 3 and for furnishing information about such transactions in such form as may be directed by the Director in consultation with, its Regulator.",
+   "obligation": true,
+   "id": "R7.3"
+  },
+  {
+   "kind": "Provision",
+   "label": "R8.1",
+   "text": "The Principal Officer of a reporting entity shall furnish the information in respect of transactions referred to in clauses (A), (B), (BA), (C) and (E) of sub-rule (1) of rule 3 every month to the Director by the 15th day of the succeeding month.",
+   "obligation": true,
+   "id": "R8.1"
+  },
+  {
+   "kind": "Provision",
+   "label": "R8.4",
+   "text": "For the purpose of this rule, delay of each day in not reporting a transaction or delay of each day in rectifying a mis-reported transaction beyond the time limit as specified in this rule shall constitute a separate violation.",
+   "obligation": true,
+   "id": "R8.4"
+  },
+  {
+   "kind": "Provision",
+   "label": "R11",
+   "text": "If any question arises relating to the interpretation of these rules, the matter shall be referred to the Central Government and the decision of the Central Government shall be final.",
+   "obligation": true,
+   "id": "R11"
+  },
+  {
+   "kind": "DefinedTerm",
+   "label": "director",
+   "id": "term:director"
+  },
+  {
+   "kind": "DefinedTerm",
+   "label": "principal officer",
+   "id": "term:principal officer"
+  },
+  {
+   "kind": "DefinedTerm",
+   "label": "transaction",
+   "id": "term:transaction"
+  },
+  {
+   "kind": "Concept",
+   "label": "cash transaction",
+   "open": true,
+   "term": "cash transaction",
+   "why_open": "Rule 2 defines 'transaction' but never says which transactions count as cash (channels, instruments, cash deposit machines, ATMs).",
+   "id": "concept:cash transaction"
+  },
+  {
+   "kind": "Concept",
+   "label": "integrally connected",
+   "open": true,
+   "term": "integrally connected",
+   "why_open": "No test for when transactions are connected: same account, same customer, same day, related parties?",
+   "id": "concept:integrally connected"
+  },
+  {
+   "kind": "Concept",
+   "label": "month window",
+   "open": true,
+   "term": "within a month",
+   "why_open": "Calendar month or any rolling 30-day window.",
+   "id": "concept:month window"
+  },
+  {
+   "kind": "Concept",
+   "label": "foreign currency equivalent",
+   "open": true,
+   "term": "its equivalent in foreign currency",
+   "why_open": "Which exchange rate, from which source, on which date.",
+   "id": "concept:foreign currency equivalent"
+  },
+  {
+   "kind": "Concept",
+   "label": "nature of transaction",
+   "open": true,
+   "term": "the nature of the transactions",
+   "why_open": "No list of categories is given.",
+   "id": "concept:nature of transaction"
+  },
+  {
+   "kind": "Concept",
+   "label": "transaction parties",
+   "open": true,
+   "term": "the parties to the transaction",
+   "why_open": "Account holder only, or also a third party who deposits the cash.",
+   "id": "concept:transaction parties"
+  },
+  {
+   "kind": "Delegation",
+   "label": "Regulator (RBI)",
+   "clause": "R4",
+   "phrase": "specified by the Regulator",
+   "authority": "Regulator",
+   "resolved_to": "RBI",
+   "id": "deleg:0"
+  },
+  {
+   "kind": "Delegation",
+   "label": "Director (FIU-IND)",
+   "clause": "R7.3",
+   "phrase": "guidelines issued by the Director",
+   "authority": "Director",
+   "resolved_to": "FIU-IND",
+   "id": "deleg:1"
+  },
+  {
+   "kind": "Delegation",
+   "label": "Director (FIU-IND)",
+   "clause": "R7.3",
+   "phrase": "as may be directed by the Director",
+   "authority": "Director",
+   "resolved_to": "FIU-IND",
+   "id": "deleg:2"
+  },
+  {
+   "kind": "Delegation",
+   "label": "Central Government (Government of India)",
+   "clause": "R11",
+   "phrase": "referred to the Central Government",
+   "authority": "Central Government",
+   "resolved_to": "Government of India",
+   "id": "deleg:3"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-01",
+   "title": "Reporting scope",
+   "text": "For each calendar month, the engine shall identify every cash transaction of a customer valued above INR 10,00,000, and every series of integrally connected cash transactions whose monthly aggregate exceeds INR 10,00,000, as required by Rule 3(1)(A) and Rule 3(1)(B).",
+   "id": "BR-01"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-02",
+   "title": "Cash identification",
+   "text": "A transaction shall be treated as a cash transaction when its CoreOne transaction type is 'C' and its channel is Branch Teller or Cash Deposit Machine. Cash deposits through Cash Deposit Machines are in scope as agreed by the CTR Working Group on 12-Mar-2025. ATM cash withdrawals are out of scope.",
+   "id": "BR-02"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-03",
+   "title": "Integrally connected transactions",
+   "text": "For each customer, identified by UCIC, all cash debits across all of the customer's accounts in the calendar month shall be summed separately from all cash credits. When either sum exceeds INR 10,00,000, the transactions on that side are reportable.",
+   "id": "BR-03"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-04",
+   "title": "Small-value exclusion",
+   "text": "Within a reportable series, individual transactions below INR 50,000 shall not be listed in the report.",
+   "id": "BR-04"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-05",
+   "title": "Internal accounts",
+   "text": "Transactions between the bank's own internal (office) accounts shall be excluded from the report.",
+   "id": "BR-05"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-06",
+   "title": "Foreign currency",
+   "text": "Foreign-currency cash transactions shall be converted to INR at the Treasury card rate of the transaction date, as defined in Treasury Rate Policy TRP-2023 section 3, before any threshold is applied.",
+   "id": "BR-06"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-07",
+   "title": "Walk-in customers",
+   "text": "Cash transactions by walk-in customers without an account shall be grouped using the PAN recorded on the transaction voucher.",
+   "id": "BR-07"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-08",
+   "title": "Report content",
+   "text": "For each reported transaction the report shall contain the transaction date, amount, currency, nature of transaction (deposit or withdrawal), account number, customer name and branch code.",
+   "id": "BR-08"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-09",
+   "title": "Source mapping",
+   "text": "Transaction attributes shall be sourced from CoreOne table TXN_HIST (TXN_DT, TXN_AMT, TXN_CCY, TXN_TYPE, CHNL_CD, ACCT_NO). Customer name shall be sourced from CUST_MASTER joined on UCIC.",
+   "id": "BR-09"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-10",
+   "title": "Report format",
+   "text": "The report shall be produced in the FIU-IND account-based XML reporting format and shall pass the FIU-IND validation utility before submission.",
+   "id": "BR-10"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-11",
+   "title": "Timeline",
+   "text": "The report for each month shall be submitted to FIU-IND by the 15th day of the succeeding month. A draft shall be generated by the 5th working day for review by the Principal Officer.",
+   "id": "BR-11"
+  },
+  {
+   "kind": "Requirement",
+   "label": "BR-12",
+   "title": "Corrections",
+   "text": "A report found to contain errors after submission shall be corrected by filing a replacement report.",
+   "id": "BR-12"
+  },
+  {
+   "kind": "Atom",
+   "label": "A01",
+   "type": "Threshold",
+   "text": "A single cash transaction above INR 10 lakh is reportable.",
+   "evidence": "every cash transaction of a customer valued above INR 10,00,000",
+   "br": "BR-01",
+   "judge": "stated",
+   "named_sources": [],
+   "id": "A01"
+  },
+  {
+   "kind": "DataElement",
+   "label": "transaction amount",
+   "id": "data:transaction amount"
+  },
+  {
+   "kind": "DataElement",
+   "label": "transaction type",
+   "id": "data:transaction type"
+  },
+  {
+   "kind": "DataElement",
+   "label": "channel",
+   "id": "data:channel"
+  },
+  {
+   "kind": "Atom",
+   "label": "A02",
+   "type": "BusinessRule",
+   "text": "A series of integrally connected cash transactions whose monthly aggregate exceeds INR 10 lakh is reportable.",
+   "evidence": "every series of integrally connected cash transactions whose monthly aggregate exceeds INR 10,00,000",
+   "br": "BR-01",
+   "judge": "stated",
+   "named_sources": [],
+   "id": "A02"
+  },
+  {
+   "kind": "DataElement",
+   "label": "transaction date",
+   "id": "data:transaction date"
+  },
+  {
+   "kind": "Atom",
+   "label": "A03",
+   "type": "Calculation",
+   "text": "The aggregation window is the calendar month.",
+   "evidence": "For each calendar month",
+   "br": "BR-01",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A03"
+  },
+  {
+   "kind": "Atom",
+   "label": "A04",
+   "type": "ProductDefinition",
+   "text": "A cash transaction is one with CoreOne transaction type 'C'.",
+   "evidence": "its CoreOne transaction type is 'C'",
+   "br": "BR-02",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A04"
+  },
+  {
+   "kind": "Atom",
+   "label": "A05",
+   "type": "ProductDefinition",
+   "text": "Only Branch Teller and Cash Deposit Machine channels count as cash.",
+   "evidence": "its channel is Branch Teller or Cash Deposit Machine",
+   "br": "BR-02",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A05"
+  },
+  {
+   "kind": "Atom",
+   "label": "A06",
+   "type": "Decision",
+   "text": "Cash deposits through Cash Deposit Machines are in scope.",
+   "evidence": "Cash deposits through Cash Deposit Machines are in scope as agreed by the CTR Working Group on 12-Mar-2025",
+   "br": "BR-02",
+   "judge": "refined",
+   "named_sources": [
+    "CTR Working Group decision, 12-Mar-2025"
+   ],
+   "id": "A06"
+  },
+  {
+   "kind": "NamedSource",
+   "label": "CTR Working Group decision, 12-Mar-2025",
+   "in_corpus": false,
+   "id": "named:CTR Working Group decision, 12-Mar-2025"
+  },
+  {
+   "kind": "Atom",
+   "label": "A07",
+   "type": "Decision",
+   "text": "ATM cash withdrawals are excluded.",
+   "evidence": "ATM cash withdrawals are out of scope",
+   "br": "BR-02",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A07"
+  },
+  {
+   "kind": "Atom",
+   "label": "A08",
+   "type": "BusinessRule",
+   "text": "Connected transactions are grouped per customer across all of that customer's accounts.",
+   "evidence": "all cash debits across all of the customer's accounts",
+   "br": "BR-03",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A08"
+  },
+  {
+   "kind": "DataElement",
+   "label": "UCIC for each account",
+   "id": "data:UCIC for each account"
+  },
+  {
+   "kind": "DataElement",
+   "label": "account number",
+   "id": "data:account number"
+  },
+  {
+   "kind": "Atom",
+   "label": "A09",
+   "type": "SystemCapability",
+   "text": "Customers are identified by the UCIC.",
+   "evidence": "identified by UCIC",
+   "br": "BR-03",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A09"
+  },
+  {
+   "kind": "Concept",
+   "label": "customer identity",
+   "open": false,
+   "id": "concept:customer identity"
+  },
+  {
+   "kind": "Atom",
+   "label": "A10",
+   "type": "Calculation",
+   "text": "Debits and credits are aggregated separately, each tested against the threshold.",
+   "evidence": "summed separately from all cash credits",
+   "br": "BR-03",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A10"
+  },
+  {
+   "kind": "DataElement",
+   "label": "debit/credit indicator",
+   "id": "data:debit/credit indicator"
+  },
+  {
+   "kind": "Atom",
+   "label": "A11",
+   "type": "BusinessRule",
+   "text": "Transactions below INR 50,000 inside a reportable series are not listed.",
+   "evidence": "individual transactions below INR 50,000 shall not be listed in the report",
+   "br": "BR-04",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A11"
+  },
+  {
+   "kind": "Concept",
+   "label": "report content",
+   "open": false,
+   "id": "concept:report content"
+  },
+  {
+   "kind": "Atom",
+   "label": "A12",
+   "type": "BusinessRule",
+   "text": "Transfers between the bank's own internal accounts are excluded.",
+   "evidence": "Transactions between the bank's own internal (office) accounts shall be excluded from the report",
+   "br": "BR-05",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A12"
+  },
+  {
+   "kind": "Concept",
+   "label": "report scope",
+   "open": false,
+   "id": "concept:report scope"
+  },
+  {
+   "kind": "DataElement",
+   "label": "internal account flag",
+   "id": "data:internal account flag"
+  },
+  {
+   "kind": "Atom",
+   "label": "A13",
+   "type": "Calculation",
+   "text": "Foreign-currency cash is valued in rupees before the threshold is applied.",
+   "evidence": "Foreign-currency cash transactions shall be converted to INR",
+   "br": "BR-06",
+   "judge": "stated",
+   "named_sources": [],
+   "id": "A13"
+  },
+  {
+   "kind": "DataElement",
+   "label": "transaction currency",
+   "id": "data:transaction currency"
+  },
+  {
+   "kind": "Atom",
+   "label": "A14",
+   "type": "Calculation",
+   "text": "The conversion uses the Treasury card rate of the transaction date.",
+   "evidence": "at the Treasury card rate of the transaction date",
+   "br": "BR-06",
+   "judge": "refined",
+   "named_sources": [
+    "Treasury Rate Policy TRP-2023 section 3"
+   ],
+   "id": "A14"
+  },
+  {
+   "kind": "NamedSource",
+   "label": "Treasury Rate Policy TRP-2023 section 3",
+   "in_corpus": false,
+   "id": "named:Treasury Rate Policy TRP-2023 section 3"
+  },
+  {
+   "kind": "DataElement",
+   "label": "Treasury card rate by date",
+   "id": "data:Treasury card rate by date"
+  },
+  {
+   "kind": "Atom",
+   "label": "A15",
+   "type": "BusinessRule",
+   "text": "Walk-in customers' cash transactions are grouped by the PAN on the voucher.",
+   "evidence": "grouped using the PAN recorded on the transaction voucher",
+   "br": "BR-07",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A15"
+  },
+  {
+   "kind": "DataElement",
+   "label": "PAN on voucher",
+   "id": "data:PAN on voucher"
+  },
+  {
+   "kind": "Atom",
+   "label": "A16",
+   "type": "DataElement",
+   "text": "Each reported transaction carries its date, amount and currency.",
+   "evidence": "the transaction date, amount, currency",
+   "br": "BR-08",
+   "judge": "stated",
+   "named_sources": [],
+   "id": "A16"
+  },
+  {
+   "kind": "Atom",
+   "label": "A17",
+   "type": "DataElement",
+   "text": "The nature of a transaction is expressed as deposit or withdrawal.",
+   "evidence": "nature of transaction (deposit or withdrawal)",
+   "br": "BR-08",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A17"
+  },
+  {
+   "kind": "Atom",
+   "label": "A18",
+   "type": "DataElement",
+   "text": "Each reported transaction carries account number, customer name and branch code.",
+   "evidence": "account number, customer name and branch code",
+   "br": "BR-08",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A18"
+  },
+  {
+   "kind": "DataElement",
+   "label": "customer name",
+   "id": "data:customer name"
+  },
+  {
+   "kind": "DataElement",
+   "label": "branch code",
+   "id": "data:branch code"
+  },
+  {
+   "kind": "Atom",
+   "label": "A19",
+   "type": "Mapping",
+   "text": "Transaction attributes come from CoreOne TXN_HIST.",
+   "evidence": "CoreOne table TXN_HIST (TXN_DT, TXN_AMT, TXN_CCY, TXN_TYPE, CHNL_CD, ACCT_NO)",
+   "br": "BR-09",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A19"
+  },
+  {
+   "kind": "Concept",
+   "label": "source mapping",
+   "open": false,
+   "id": "concept:source mapping"
+  },
+  {
+   "kind": "Atom",
+   "label": "A20",
+   "type": "Mapping",
+   "text": "Customer name comes from CUST_MASTER, joined on UCIC.",
+   "evidence": "Customer name shall be sourced from CUST_MASTER joined on UCIC",
+   "br": "BR-09",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A20"
+  },
+  {
+   "kind": "Atom",
+   "label": "A21",
+   "type": "ReportFormat",
+   "text": "The report uses FIU-IND's account-based XML format.",
+   "evidence": "FIU-IND account-based XML reporting format",
+   "br": "BR-10",
+   "judge": "refined",
+   "named_sources": [
+    "FIU-IND account-based XML reporting format"
+   ],
+   "id": "A21"
+  },
+  {
+   "kind": "Concept",
+   "label": "report form",
+   "open": false,
+   "id": "concept:report form"
+  },
+  {
+   "kind": "NamedSource",
+   "label": "FIU-IND account-based XML reporting format",
+   "in_corpus": false,
+   "id": "named:FIU-IND account-based XML reporting format"
+  },
+  {
+   "kind": "Atom",
+   "label": "A22",
+   "type": "SystemCapability",
+   "text": "Reports must pass FIU-IND's validation utility before submission.",
+   "evidence": "pass the FIU-IND validation utility before submission",
+   "br": "BR-10",
+   "judge": "refined",
+   "named_sources": [
+    "FIU-IND validation utility"
+   ],
+   "id": "A22"
+  },
+  {
+   "kind": "NamedSource",
+   "label": "FIU-IND validation utility",
+   "in_corpus": false,
+   "id": "named:FIU-IND validation utility"
+  },
+  {
+   "kind": "Atom",
+   "label": "A23",
+   "type": "Deadline",
+   "text": "Submission is due by the 15th of the following month.",
+   "evidence": "by the 15th day of the succeeding month",
+   "br": "BR-11",
+   "judge": "stated",
+   "named_sources": [],
+   "id": "A23"
+  },
+  {
+   "kind": "Concept",
+   "label": "deadline",
+   "open": false,
+   "id": "concept:deadline"
+  },
+  {
+   "kind": "Atom",
+   "label": "A24",
+   "type": "ProcessStep",
+   "text": "A draft is produced by the 5th working day for the Principal Officer's review.",
+   "evidence": "A draft shall be generated by the 5th working day for review by the Principal Officer",
+   "br": "BR-11",
+   "judge": "none",
+   "named_sources": [],
+   "id": "A24"
+  },
+  {
+   "kind": "Concept",
+   "label": "review process",
+   "open": false,
+   "id": "concept:review process"
+  },
+  {
+   "kind": "Atom",
+   "label": "A25",
+   "type": "ProcessStep",
+   "text": "Errors found after submission are corrected with a replacement report.",
+   "evidence": "corrected by filing a replacement report",
+   "br": "BR-12",
+   "judge": "refined",
+   "named_sources": [],
+   "id": "A25"
+  },
+  {
+   "kind": "Concept",
+   "label": "corrections",
+   "open": false,
+   "id": "concept:corrections"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A03",
+   "severity": "high",
+   "open_term": "within a month",
+   "refined_clause": "R3.1.B",
+   "named_sources": [],
+   "citation_overreach": [
+    "R3.1.B"
+   ],
+   "summary": "The aggregation window is the calendar month.",
+   "id": "G-A03"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A04",
+   "severity": "high",
+   "open_term": "cash transaction",
+   "refined_clause": "R3.1.A",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "A cash transaction is one with CoreOne transaction type 'C'.",
+   "id": "G-A04"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A05",
+   "severity": "high",
+   "open_term": "cash transaction",
+   "refined_clause": "R3.1.A",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Only Branch Teller and Cash Deposit Machine channels count as cash.",
+   "id": "G-A05"
+  },
+  {
+   "kind": "Gap",
+   "label": "POINTER",
+   "gap_kind": "POINTER",
+   "target": "A06",
+   "severity": "medium",
+   "open_term": "cash transaction",
+   "refined_clause": "R3.1.A",
+   "named_sources": [
+    "CTR Working Group decision, 12-Mar-2025"
+   ],
+   "citation_overreach": [],
+   "summary": "Cash deposits through Cash Deposit Machines are in scope.",
+   "id": "G-A06"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A07",
+   "severity": "high",
+   "open_term": "cash transaction",
+   "refined_clause": "R3.1.A",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "ATM cash withdrawals are excluded.",
+   "id": "G-A07"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A08",
+   "severity": "high",
+   "open_term": "integrally connected",
+   "refined_clause": "R3.1.B",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Connected transactions are grouped per customer across all of that customer's accounts.",
+   "id": "G-A08"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A09",
+   "severity": "medium",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Customers are identified by the UCIC.",
+   "id": "G-A09"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A10",
+   "severity": "high",
+   "open_term": "integrally connected",
+   "refined_clause": "R3.1.B",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Debits and credits are aggregated separately, each tested against the threshold.",
+   "id": "G-A10"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A11",
+   "severity": "high",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Transactions below INR 50,000 inside a reportable series are not listed.",
+   "id": "G-A11"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A12",
+   "severity": "high",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Transfers between the bank's own internal accounts are excluded.",
+   "id": "G-A12"
+  },
+  {
+   "kind": "Gap",
+   "label": "POINTER",
+   "gap_kind": "POINTER",
+   "target": "A14",
+   "severity": "medium",
+   "open_term": "its equivalent in foreign currency",
+   "refined_clause": "R3.1.A",
+   "named_sources": [
+    "Treasury Rate Policy TRP-2023 section 3"
+   ],
+   "citation_overreach": [],
+   "summary": "The conversion uses the Treasury card rate of the transaction date.",
+   "id": "G-A14"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A15",
+   "severity": "high",
+   "open_term": "integrally connected",
+   "refined_clause": "R3.1.B",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Walk-in customers' cash transactions are grouped by the PAN on the voucher.",
+   "id": "G-A15"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A17",
+   "severity": "medium",
+   "open_term": "the nature of the transactions",
+   "refined_clause": "R4",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "The nature of a transaction is expressed as deposit or withdrawal.",
+   "id": "G-A17"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A18",
+   "severity": "medium",
+   "open_term": "information specified by the Regulator",
+   "refined_clause": "R4",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Each reported transaction carries account number, customer name and branch code.",
+   "id": "G-A18"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A19",
+   "severity": "low",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Transaction attributes come from CoreOne TXN_HIST.",
+   "id": "G-A19"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A20",
+   "severity": "low",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Customer name comes from CUST_MASTER, joined on UCIC.",
+   "id": "G-A20"
+  },
+  {
+   "kind": "Gap",
+   "label": "POINTER",
+   "gap_kind": "POINTER",
+   "target": "A21",
+   "severity": "medium",
+   "open_term": "such form as may be directed by the Director",
+   "refined_clause": "R7.3",
+   "named_sources": [
+    "FIU-IND account-based XML reporting format"
+   ],
+   "citation_overreach": [],
+   "summary": "The report uses FIU-IND's account-based XML format.",
+   "id": "G-A21"
+  },
+  {
+   "kind": "Gap",
+   "label": "POINTER",
+   "gap_kind": "POINTER",
+   "target": "A22",
+   "severity": "medium",
+   "open_term": "such form as may be directed by the Director",
+   "refined_clause": "R7.3",
+   "named_sources": [
+    "FIU-IND validation utility"
+   ],
+   "citation_overreach": [],
+   "summary": "Reports must pass FIU-IND's validation utility before submission.",
+   "id": "G-A22"
+  },
+  {
+   "kind": "Gap",
+   "label": "HIDDEN",
+   "gap_kind": "HIDDEN",
+   "target": "A24",
+   "severity": "low",
+   "open_term": null,
+   "refined_clause": null,
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "A draft is produced by the 5th working day for the Principal Officer's review.",
+   "id": "G-A24"
+  },
+  {
+   "kind": "Gap",
+   "label": "INTERPRETATION",
+   "gap_kind": "INTERPRETATION",
+   "target": "A25",
+   "severity": "low",
+   "open_term": "rectifying a mis-reported transaction",
+   "refined_clause": "R8.4",
+   "named_sources": [],
+   "citation_overreach": [],
+   "summary": "Errors found after submission are corrected with a replacement report.",
+   "id": "G-A25"
+  },
+  {
+   "kind": "Gap",
+   "label": "OPEN_TERM_UNFILLED",
+   "gap_kind": "OPEN_TERM_UNFILLED",
+   "target": "concept:transaction parties",
+   "severity": "high",
+   "clause": "R4",
+   "summary": "'the parties to the transaction' (R4) is not defined and the BRD never pins it down: Account holder only, or also a third party who deposits the cash.",
+   "id": "G-open-transaction_parties"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:UCIC for each account",
+   "severity": "medium",
+   "needed_by": [
+    "A08",
+    "A09",
+    "A20"
+   ],
+   "summary": "'UCIC for each account' is needed by A08, A09, A20 but no mapping provides it.",
+   "id": "G-data-UCIC_for_each_account"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:debit/credit indicator",
+   "severity": "medium",
+   "needed_by": [
+    "A10",
+    "A17"
+   ],
+   "summary": "'debit/credit indicator' is needed by A10, A17 but no mapping provides it.",
+   "id": "G-data-debit-credit_indicator"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:internal account flag",
+   "severity": "medium",
+   "needed_by": [
+    "A12"
+   ],
+   "summary": "'internal account flag' is needed by A12 but no mapping provides it.",
+   "id": "G-data-internal_account_flag"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:Treasury card rate by date",
+   "severity": "medium",
+   "needed_by": [
+    "A14"
+   ],
+   "summary": "'Treasury card rate by date' is needed by A14 but no mapping provides it.",
+   "id": "G-data-Treasury_card_rate_by_date"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:PAN on voucher",
+   "severity": "medium",
+   "needed_by": [
+    "A15"
+   ],
+   "summary": "'PAN on voucher' is needed by A15 but no mapping provides it.",
+   "id": "G-data-PAN_on_voucher"
+  },
+  {
+   "kind": "Gap",
+   "label": "DATA_UNMAPPED",
+   "gap_kind": "DATA_UNMAPPED",
+   "target": "data:branch code",
+   "severity": "medium",
+   "needed_by": [
+    "A18"
+   ],
+   "summary": "'branch code' is needed by A18 but no mapping provides it.",
+   "id": "G-data-branch_code"
+  },
+  {
+   "kind": "Gap",
+   "label": "OBLIGATION_UNCOVERED",
+   "gap_kind": "OBLIGATION_UNCOVERED",
+   "target": "R7.2",
+   "severity": "medium",
+   "summary": "No BRD requirement implements this obligation: The Principal Officer shall furnish the information referred to in clauses (A), (B), (BA), (C), (D), (E), (F) of sub-rule (1) of rule 3 to the Director on the b",
+   "id": "G-uncovered-R7.2"
+  },
+  {
+   "kind": "Gap",
+   "label": "OBLIGATION_UNCOVERED",
+   "gap_kind": "OBLIGATION_UNCOVERED",
+   "target": "R11",
+   "severity": "low",
+   "summary": "Meta-provision: tells you who holds interpretation authority. If any question arises relating to the interpretation of these rules, the matter shall be referred to the Central Government and the decision of the Central Gov",
+   "id": "G-uncovered-R11"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S15",
+   "title": "Group AML Policy AML-POL-07",
+   "category": "INT_POLICY",
+   "id": "src:S15"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S06",
+   "title": "Treasury Rate Policy TRP-2023",
+   "category": "INT_POLICY",
+   "id": "src:S06"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S11",
+   "title": "AML Operations SOP and reporting calendar",
+   "category": "INT_PROCESS",
+   "id": "src:S11"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S08",
+   "title": "CoreOne transaction code and channel master",
+   "category": "INT_SYSTEM",
+   "id": "src:S08"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S07",
+   "title": "CoreOne data dictionary",
+   "category": "INT_SYSTEM",
+   "id": "src:S07"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S14",
+   "title": "Teller and voucher system specification",
+   "category": "INT_SYSTEM",
+   "id": "src:S14"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S05",
+   "title": "CTR Working Group minutes and decision log",
+   "category": "INT_DECISION",
+   "id": "src:S05"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S12",
+   "title": "Previous CTR BRDs and change requests",
+   "category": "INT_DECISION",
+   "id": "src:S12"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S04",
+   "title": "AML Compliance interpretation memos",
+   "category": "INT_DECISION",
+   "id": "src:S04"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S13",
+   "title": "Internal audit and inspection findings",
+   "category": "INT_DECISION",
+   "id": "src:S13"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S01",
+   "title": "RBI Master Direction on KYC and AML circulars",
+   "category": "REG_GUIDANCE",
+   "id": "src:S01"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S09",
+   "title": "Customer MDM and UCIC design",
+   "category": "INT_SYSTEM",
+   "id": "src:S09"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S02",
+   "title": "FIU-IND Reporting Format Guide and XML schemas",
+   "category": "REG_FORMAT",
+   "id": "src:S02"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S03",
+   "title": "FIU-IND FAQs",
+   "category": "REG_GUIDANCE",
+   "id": "src:S03"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S10",
+   "title": "Enterprise data catalog and lineage",
+   "category": "INT_SYSTEM",
+   "id": "src:S10"
+  },
+  {
+   "kind": "SourceCandidate",
+   "label": "S16",
+   "title": "Subject-matter experts (Principal Officer's team)",
+   "category": "TACIT",
+   "id": "src:S16"
+  }
+ ],
+ "links": [
+  {
+   "rel": "DEFINES",
+   "source": "R2.1.c",
+   "target": "term:director",
+   "key": 0
+  },
+  {
+   "rel": "DEFINES",
+   "source": "R2.1.f",
+   "target": "term:principal officer",
+   "key": 0
+  },
+  {
+   "rel": "DEFINES",
+   "source": "R2.1.h",
+   "target": "term:transaction",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R3.1.A",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R3.1.A",
+   "target": "concept:foreign currency equivalent",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R3.1.B",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R3.1.B",
+   "target": "concept:month window",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R4",
+   "target": "concept:nature of transaction",
+   "key": 0
+  },
+  {
+   "rel": "LEAVES_OPEN",
+   "source": "R4",
+   "target": "concept:transaction parties",
+   "key": 0
+  },
+  {
+   "rel": "DELEGATES_TO",
+   "source": "R4",
+   "target": "deleg:0",
+   "key": 0
+  },
+  {
+   "rel": "DELEGATES_TO",
+   "source": "R7.3",
+   "target": "deleg:1",
+   "key": 0
+  },
+  {
+   "rel": "DELEGATES_TO",
+   "source": "R7.3",
+   "target": "deleg:2",
+   "key": 0
+  },
+  {
+   "rel": "DELEGATES_TO",
+   "source": "R11",
+   "target": "deleg:3",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-01",
+   "target": "A01",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-01",
+   "target": "A02",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-01",
+   "target": "A03",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-02",
+   "target": "A04",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-02",
+   "target": "A05",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-02",
+   "target": "A06",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-02",
+   "target": "A07",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-03",
+   "target": "A08",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-03",
+   "target": "A09",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-03",
+   "target": "A10",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-04",
+   "target": "A11",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-05",
+   "target": "A12",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-06",
+   "target": "A13",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-06",
+   "target": "A14",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-07",
+   "target": "A15",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-08",
+   "target": "A16",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-08",
+   "target": "A17",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-08",
+   "target": "A18",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-09",
+   "target": "A19",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-09",
+   "target": "A20",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-10",
+   "target": "A21",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-10",
+   "target": "A22",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-11",
+   "target": "A23",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-11",
+   "target": "A24",
+   "key": 0
+  },
+  {
+   "rel": "HAS_ATOM",
+   "source": "BR-12",
+   "target": "A25",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A01",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "SUPPORTED_BY",
+   "source": "A01",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "CITES_CLAUSE",
+   "source": "A01",
+   "target": "R3.1.A",
+   "key": 1
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A01",
+   "target": "data:transaction amount",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A01",
+   "target": "data:transaction type",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A01",
+   "target": "data:channel",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A02",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "SUPPORTED_BY",
+   "source": "A02",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "CITES_CLAUSE",
+   "source": "A02",
+   "target": "R3.1.B",
+   "key": 1
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A02",
+   "target": "data:transaction amount",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A02",
+   "target": "data:transaction date",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A03",
+   "target": "concept:month window",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "within a month",
+   "source": "A03",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "CITES_CLAUSE",
+   "source": "A03",
+   "target": "R3.1.B",
+   "key": 1
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A03",
+   "target": "data:transaction date",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A04",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "cash transaction",
+   "source": "A04",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A04",
+   "target": "data:transaction type",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A05",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "cash transaction",
+   "source": "A05",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A05",
+   "target": "data:channel",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A06",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "cash transaction",
+   "source": "A06",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "CITES_SOURCE",
+   "source": "A06",
+   "target": "named:CTR Working Group decision, 12-Mar-2025",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A06",
+   "target": "data:channel",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A07",
+   "target": "concept:cash transaction",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "cash transaction",
+   "source": "A07",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A07",
+   "target": "data:channel",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A08",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "integrally connected",
+   "source": "A08",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A08",
+   "target": "data:UCIC for each account",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A08",
+   "target": "data:account number",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A09",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A09",
+   "target": "concept:customer identity",
+   "key": 0
+  },
+  {
+   "rel": "RELATED_TO",
+   "source": "A09",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A09",
+   "target": "data:UCIC for each account",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A10",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "integrally connected",
+   "source": "A10",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A10",
+   "target": "data:debit/credit indicator",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A11",
+   "target": "concept:report content",
+   "key": 0
+  },
+  {
+   "rel": "RELATED_TO",
+   "source": "A11",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A11",
+   "target": "data:transaction amount",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A12",
+   "target": "concept:report scope",
+   "key": 0
+  },
+  {
+   "rel": "RELATED_TO",
+   "source": "A12",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A12",
+   "target": "data:internal account flag",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A13",
+   "target": "concept:foreign currency equivalent",
+   "key": 0
+  },
+  {
+   "rel": "SUPPORTED_BY",
+   "source": "A13",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A13",
+   "target": "data:transaction currency",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A14",
+   "target": "concept:foreign currency equivalent",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "its equivalent in foreign currency",
+   "source": "A14",
+   "target": "R3.1.A",
+   "key": 0
+  },
+  {
+   "rel": "CITES_SOURCE",
+   "source": "A14",
+   "target": "named:Treasury Rate Policy TRP-2023 section 3",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A14",
+   "target": "data:Treasury card rate by date",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A15",
+   "target": "concept:integrally connected",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A15",
+   "target": "concept:customer identity",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "integrally connected",
+   "source": "A15",
+   "target": "R3.1.B",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A15",
+   "target": "data:PAN on voucher",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A16",
+   "target": "concept:report content",
+   "key": 0
+  },
+  {
+   "rel": "SUPPORTED_BY",
+   "source": "A16",
+   "target": "R4",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A16",
+   "target": "data:transaction date",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A16",
+   "target": "data:transaction amount",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A16",
+   "target": "data:transaction currency",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A17",
+   "target": "concept:nature of transaction",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "the nature of the transactions",
+   "source": "A17",
+   "target": "R4",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A17",
+   "target": "data:debit/credit indicator",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A18",
+   "target": "concept:report content",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "information specified by the Regulator",
+   "source": "A18",
+   "target": "R4",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A18",
+   "target": "data:account number",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A18",
+   "target": "data:customer name",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A18",
+   "target": "data:branch code",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A19",
+   "target": "concept:source mapping",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:transaction date",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:transaction amount",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:transaction currency",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:transaction type",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:channel",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A19",
+   "target": "data:account number",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A20",
+   "target": "concept:source mapping",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A20",
+   "target": "concept:customer identity",
+   "key": 0
+  },
+  {
+   "rel": "REQUIRES",
+   "source": "A20",
+   "target": "data:UCIC for each account",
+   "key": 0
+  },
+  {
+   "rel": "PROVIDES",
+   "source": "A20",
+   "target": "data:customer name",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A21",
+   "target": "concept:report form",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "such form as may be directed by the Director",
+   "source": "A21",
+   "target": "R7.3",
+   "key": 0
+  },
+  {
+   "rel": "CITES_SOURCE",
+   "source": "A21",
+   "target": "named:FIU-IND account-based XML reporting format",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A22",
+   "target": "concept:report form",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "such form as may be directed by the Director",
+   "source": "A22",
+   "target": "R7.3",
+   "key": 0
+  },
+  {
+   "rel": "CITES_SOURCE",
+   "source": "A22",
+   "target": "named:FIU-IND validation utility",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A23",
+   "target": "concept:deadline",
+   "key": 0
+  },
+  {
+   "rel": "SUPPORTED_BY",
+   "source": "A23",
+   "target": "R8.1",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A24",
+   "target": "concept:review process",
+   "key": 0
+  },
+  {
+   "rel": "RELATED_TO",
+   "source": "A24",
+   "target": "R7.2",
+   "key": 0
+  },
+  {
+   "rel": "ABOUT",
+   "source": "A25",
+   "target": "concept:corrections",
+   "key": 0
+  },
+  {
+   "rel": "REFINES",
+   "open_term": "rectifying a mis-reported transaction",
+   "source": "A25",
+   "target": "R8.4",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A03",
+   "target": "A03",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.495,
+   "rank": 1,
+   "source": "G-A03",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.495,
+   "rank": 2,
+   "source": "G-A03",
+   "target": "src:S06",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.45,
+   "rank": 3,
+   "source": "G-A03",
+   "target": "src:S11",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A04",
+   "target": "A04",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.945,
+   "rank": 1,
+   "source": "G-A04",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.664,
+   "rank": 2,
+   "source": "G-A04",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.534,
+   "rank": 3,
+   "source": "G-A04",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A05",
+   "target": "A05",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.945,
+   "rank": 1,
+   "source": "G-A05",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.766,
+   "rank": 2,
+   "source": "G-A05",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.621,
+   "rank": 3,
+   "source": "G-A05",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A06",
+   "target": "A06",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.5,
+   "rank": 1,
+   "source": "G-A06",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.587,
+   "rank": 2,
+   "source": "G-A06",
+   "target": "src:S12",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.581,
+   "rank": 3,
+   "source": "G-A06",
+   "target": "src:S04",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A07",
+   "target": "A07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.766,
+   "rank": 1,
+   "source": "G-A07",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.611,
+   "rank": 2,
+   "source": "G-A07",
+   "target": "src:S04",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.55,
+   "rank": 3,
+   "source": "G-A07",
+   "target": "src:S13",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A08",
+   "target": "A08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-A08",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.659,
+   "rank": 2,
+   "source": "G-A08",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.578,
+   "rank": 3,
+   "source": "G-A08",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A09",
+   "target": "A09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.945,
+   "rank": 1,
+   "source": "G-A09",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.628,
+   "rank": 2,
+   "source": "G-A09",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.582,
+   "rank": 3,
+   "source": "G-A09",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A10",
+   "target": "A10",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.858,
+   "rank": 1,
+   "source": "G-A10",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.835,
+   "rank": 2,
+   "source": "G-A10",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.495,
+   "rank": 3,
+   "source": "G-A10",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A11",
+   "target": "A11",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-A11",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.564,
+   "rank": 2,
+   "source": "G-A11",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.55,
+   "rank": 3,
+   "source": "G-A11",
+   "target": "src:S03",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A12",
+   "target": "A12",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.945,
+   "rank": 1,
+   "source": "G-A12",
+   "target": "src:S13",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.841,
+   "rank": 2,
+   "source": "G-A12",
+   "target": "src:S04",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.679,
+   "rank": 3,
+   "source": "G-A12",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A14",
+   "target": "A14",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.445,
+   "rank": 1,
+   "source": "G-A14",
+   "target": "src:S06",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.495,
+   "rank": 2,
+   "source": "G-A14",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.44,
+   "rank": 3,
+   "source": "G-A14",
+   "target": "src:S03",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A15",
+   "target": "A15",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.67,
+   "rank": 1,
+   "source": "G-A15",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.653,
+   "rank": 2,
+   "source": "G-A15",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.55,
+   "rank": 3,
+   "source": "G-A15",
+   "target": "src:S03",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A17",
+   "target": "A17",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.89,
+   "rank": 1,
+   "source": "G-A17",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.65,
+   "rank": 2,
+   "source": "G-A17",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.581,
+   "rank": 3,
+   "source": "G-A17",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A18",
+   "target": "A18",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.89,
+   "rank": 1,
+   "source": "G-A18",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.792,
+   "rank": 2,
+   "source": "G-A18",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.666,
+   "rank": 3,
+   "source": "G-A18",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A19",
+   "target": "A19",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-A19",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.844,
+   "rank": 2,
+   "source": "G-A19",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.632,
+   "rank": 3,
+   "source": "G-A19",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A20",
+   "target": "A20",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-A20",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.677,
+   "rank": 2,
+   "source": "G-A20",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.617,
+   "rank": 3,
+   "source": "G-A20",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A21",
+   "target": "A21",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.8,
+   "rank": 1,
+   "source": "G-A21",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.726,
+   "rank": 2,
+   "source": "G-A21",
+   "target": "src:S03",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.392,
+   "rank": 3,
+   "source": "G-A21",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A22",
+   "target": "A22",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.635,
+   "rank": 1,
+   "source": "G-A22",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.017,
+   "rank": 2,
+   "source": "G-A22",
+   "target": "src:S03",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.571,
+   "rank": 3,
+   "source": "G-A22",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A24",
+   "target": "A24",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.762,
+   "rank": 1,
+   "source": "G-A24",
+   "target": "src:S11",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.45,
+   "rank": 2,
+   "source": "G-A24",
+   "target": "src:S16",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.414,
+   "rank": 3,
+   "source": "G-A24",
+   "target": "src:S04",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-A25",
+   "target": "A25",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.78,
+   "rank": 1,
+   "source": "G-A25",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.55,
+   "rank": 2,
+   "source": "G-A25",
+   "target": "src:S11",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.275,
+   "rank": 3,
+   "source": "G-A25",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-open-transaction_parties",
+   "target": "concept:transaction parties",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.734,
+   "rank": 1,
+   "source": "G-open-transaction_parties",
+   "target": "src:S01",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.638,
+   "rank": 2,
+   "source": "G-open-transaction_parties",
+   "target": "src:S05",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.591,
+   "rank": 3,
+   "source": "G-open-transaction_parties",
+   "target": "src:S02",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-UCIC_for_each_account",
+   "target": "data:UCIC for each account",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-data-UCIC_for_each_account",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.707,
+   "rank": 2,
+   "source": "G-data-UCIC_for_each_account",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.624,
+   "rank": 3,
+   "source": "G-data-UCIC_for_each_account",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-debit-credit_indicator",
+   "target": "data:debit/credit indicator",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-data-debit-credit_indicator",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.754,
+   "rank": 2,
+   "source": "G-data-debit-credit_indicator",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.676,
+   "rank": 3,
+   "source": "G-data-debit-credit_indicator",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-internal_account_flag",
+   "target": "data:internal account flag",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.631,
+   "rank": 1,
+   "source": "G-data-internal_account_flag",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.63,
+   "rank": 2,
+   "source": "G-data-internal_account_flag",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.627,
+   "rank": 3,
+   "source": "G-data-internal_account_flag",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-Treasury_card_rate_by_date",
+   "target": "data:Treasury card rate by date",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.585,
+   "rank": 1,
+   "source": "G-data-Treasury_card_rate_by_date",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.584,
+   "rank": 2,
+   "source": "G-data-Treasury_card_rate_by_date",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.572,
+   "rank": 3,
+   "source": "G-data-Treasury_card_rate_by_date",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-PAN_on_voucher",
+   "target": "data:PAN on voucher",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-data-PAN_on_voucher",
+   "target": "src:S14",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.583,
+   "rank": 2,
+   "source": "G-data-PAN_on_voucher",
+   "target": "src:S10",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.574,
+   "rank": 3,
+   "source": "G-data-PAN_on_voucher",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-data-branch_code",
+   "target": "data:branch code",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 1.0,
+   "rank": 1,
+   "source": "G-data-branch_code",
+   "target": "src:S07",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.771,
+   "rank": 2,
+   "source": "G-data-branch_code",
+   "target": "src:S09",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.685,
+   "rank": 3,
+   "source": "G-data-branch_code",
+   "target": "src:S08",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-uncovered-R7.2",
+   "target": "R7.2",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.513,
+   "rank": 1,
+   "source": "G-uncovered-R7.2",
+   "target": "src:S11",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.487,
+   "rank": 2,
+   "source": "G-uncovered-R7.2",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.45,
+   "rank": 3,
+   "source": "G-uncovered-R7.2",
+   "target": "src:S16",
+   "key": 0
+  },
+  {
+   "rel": "ON",
+   "source": "G-uncovered-R11",
+   "target": "R11",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.45,
+   "rank": 1,
+   "source": "G-uncovered-R11",
+   "target": "src:S16",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.44,
+   "rank": 2,
+   "source": "G-uncovered-R11",
+   "target": "src:S15",
+   "key": 0
+  },
+  {
+   "rel": "RESOLVABLE_BY",
+   "score": 0.44,
+   "rank": 3,
+   "source": "G-uncovered-R11",
+   "target": "src:S11",
+   "key": 0
+  }
+ ]
+}

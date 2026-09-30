@@ -1,0 +1,88 @@
+{
+  "_note": "Output of the LLM extraction stage (Prompts 1-3 in prompts/prompts.md). Produced by Claude following the prompts, because no model API is available in this workspace. Every 'evidence' string must be an exact substring of data/brd.md; pipeline.py checks this.",
+  "regulation_terms": [
+    {"term": "cash transaction", "concept": "cash transaction", "clause": "R3.1.A", "why_open": "Rule 2 defines 'transaction' but never says which transactions count as cash (channels, instruments, cash deposit machines, ATMs)."},
+    {"term": "integrally connected", "concept": "integrally connected", "clause": "R3.1.B", "why_open": "No test for when transactions are connected: same account, same customer, same day, related parties?"},
+    {"term": "within a month", "concept": "month window", "clause": "R3.1.B", "why_open": "Calendar month or any rolling 30-day window."},
+    {"term": "its equivalent in foreign currency", "concept": "foreign currency equivalent", "clause": "R3.1.A", "why_open": "Which exchange rate, from which source, on which date."},
+    {"term": "the nature of the transactions", "concept": "nature of transaction", "clause": "R4", "why_open": "No list of categories is given."},
+    {"term": "the parties to the transaction", "concept": "transaction parties", "clause": "R4", "why_open": "Account holder only, or also a third party who deposits the cash."},
+    {"term": "transaction", "concept": "transaction", "clause": "R3.1.A", "why_open": "Proposed by the model; the pipeline should find it is defined in Rule 2(1)(h) and drop it."}
+  ],
+  "requirements": {
+    "BR-01": [
+      {"id": "A01", "type": "Threshold", "text": "A single cash transaction above INR 10 lakh is reportable.", "evidence": "every cash transaction of a customer valued above INR 10,00,000", "concepts": ["cash transaction"], "requires": ["transaction amount", "transaction type", "channel"], "provides": [], "reg_citations": ["R3.1.A"], "named_sources": [],
+       "judge": {"label": "stated", "clause": "R3.1.A", "open_term": null, "rationale": "The clause sets the more-than-ten-lakh threshold for cash transactions."}},
+      {"id": "A02", "type": "BusinessRule", "text": "A series of integrally connected cash transactions whose monthly aggregate exceeds INR 10 lakh is reportable.", "evidence": "every series of integrally connected cash transactions whose monthly aggregate exceeds INR 10,00,000", "concepts": ["integrally connected"], "requires": ["transaction amount", "transaction date"], "provides": [], "reg_citations": ["R3.1.B"], "named_sources": [],
+       "judge": {"label": "stated", "clause": "R3.1.B", "open_term": null, "rationale": "The clause states the monthly-aggregate rule for connected series."}},
+      {"id": "A03", "type": "Calculation", "text": "The aggregation window is the calendar month.", "evidence": "For each calendar month", "concepts": ["month window"], "requires": ["transaction date"], "provides": [], "reg_citations": ["R3.1.B"], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.B", "open_term": "within a month", "rationale": "The clause says 'within a month'; choosing the calendar month over a rolling window is not in the text, even though the BRD cites the clause."}}
+    ],
+    "BR-02": [
+      {"id": "A04", "type": "ProductDefinition", "text": "A cash transaction is one with CoreOne transaction type 'C'.", "evidence": "its CoreOne transaction type is 'C'", "concepts": ["cash transaction"], "requires": ["transaction type"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.A", "open_term": "cash transaction", "rationale": "The Rules never say which system transactions are cash; the atom maps the term to a system code."}},
+      {"id": "A05", "type": "ProductDefinition", "text": "Only Branch Teller and Cash Deposit Machine channels count as cash.", "evidence": "its channel is Branch Teller or Cash Deposit Machine", "concepts": ["cash transaction"], "requires": ["channel"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.A", "open_term": "cash transaction", "rationale": "Restricts the open term 'cash transaction' to two channels."}},
+      {"id": "A06", "type": "Decision", "text": "Cash deposits through Cash Deposit Machines are in scope.", "evidence": "Cash deposits through Cash Deposit Machines are in scope as agreed by the CTR Working Group on 12-Mar-2025", "concepts": ["cash transaction"], "requires": ["channel"], "provides": [], "reg_citations": [], "named_sources": ["CTR Working Group decision, 12-Mar-2025"],
+       "judge": {"label": "refined", "clause": "R3.1.A", "open_term": "cash transaction", "rationale": "A recorded internal decision on the scope of 'cash transaction'."}},
+      {"id": "A07", "type": "Decision", "text": "ATM cash withdrawals are excluded.", "evidence": "ATM cash withdrawals are out of scope", "concepts": ["cash transaction"], "requires": ["channel"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.A", "open_term": "cash transaction", "rationale": "Excludes a cash channel; nothing in the clause gives a basis for it, and the BRD records none."}}
+    ],
+    "BR-03": [
+      {"id": "A08", "type": "BusinessRule", "text": "Connected transactions are grouped per customer across all of that customer's accounts.", "evidence": "all cash debits across all of the customer's accounts", "concepts": ["integrally connected"], "requires": ["UCIC for each account", "account number"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.B", "open_term": "integrally connected", "rationale": "Chooses customer-level grouping as the meaning of 'integrally connected'."}},
+      {"id": "A09", "type": "SystemCapability", "text": "Customers are identified by the UCIC.", "evidence": "identified by UCIC", "concepts": ["integrally connected", "customer identity"], "requires": ["UCIC for each account"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": "R3.1.B", "open_term": null, "rationale": "UCIC is an internal identifier; no clause deals with customer identity resolution."}},
+      {"id": "A10", "type": "Calculation", "text": "Debits and credits are aggregated separately, each tested against the threshold.", "evidence": "summed separately from all cash credits", "concepts": ["integrally connected"], "requires": ["debit/credit indicator"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.B", "open_term": "integrally connected", "rationale": "The clause speaks of a monthly aggregate without saying whether debits and credits are netted, pooled or separated."}}
+    ],
+    "BR-04": [
+      {"id": "A11", "type": "BusinessRule", "text": "Transactions below INR 50,000 inside a reportable series are not listed.", "evidence": "individual transactions below INR 50,000 shall not be listed in the report", "concepts": ["report content"], "requires": ["transaction amount"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": "R3.1.B", "open_term": null, "rationale": "No clause sets a per-transaction floor; this narrows what is reported."}}
+    ],
+    "BR-05": [
+      {"id": "A12", "type": "BusinessRule", "text": "Transfers between the bank's own internal accounts are excluded.", "evidence": "Transactions between the bank's own internal (office) accounts shall be excluded from the report", "concepts": ["report scope"], "requires": ["internal account flag"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": "R3.1.A", "open_term": null, "rationale": "No clause mentions internal or office accounts."}}
+    ],
+    "BR-06": [
+      {"id": "A13", "type": "Calculation", "text": "Foreign-currency cash is valued in rupees before the threshold is applied.", "evidence": "Foreign-currency cash transactions shall be converted to INR", "concepts": ["foreign currency equivalent"], "requires": ["transaction currency"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "stated", "clause": "R3.1.A", "open_term": null, "rationale": "'Or its equivalent in foreign currency' requires valuing foreign currency against the rupee threshold."}},
+      {"id": "A14", "type": "Calculation", "text": "The conversion uses the Treasury card rate of the transaction date.", "evidence": "at the Treasury card rate of the transaction date", "concepts": ["foreign currency equivalent"], "requires": ["Treasury card rate by date"], "provides": [], "reg_citations": [], "named_sources": ["Treasury Rate Policy TRP-2023 section 3"],
+       "judge": {"label": "refined", "clause": "R3.1.A", "open_term": "its equivalent in foreign currency", "rationale": "The clause does not say which rate or date to use."}}
+    ],
+    "BR-07": [
+      {"id": "A15", "type": "BusinessRule", "text": "Walk-in customers' cash transactions are grouped by the PAN on the voucher.", "evidence": "grouped using the PAN recorded on the transaction voucher", "concepts": ["integrally connected", "customer identity"], "requires": ["PAN on voucher"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R3.1.B", "open_term": "integrally connected", "rationale": "Chooses PAN as the linking key for walk-in customers."}}
+    ],
+    "BR-08": [
+      {"id": "A16", "type": "DataElement", "text": "Each reported transaction carries its date, amount and currency.", "evidence": "the transaction date, amount, currency", "concepts": ["report content"], "requires": ["transaction date", "transaction amount", "transaction currency"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "stated", "clause": "R4", "open_term": null, "rationale": "Rule 4(b) and (c) require amount, currency and date."}},
+      {"id": "A17", "type": "DataElement", "text": "The nature of a transaction is expressed as deposit or withdrawal.", "evidence": "nature of transaction (deposit or withdrawal)", "concepts": ["nature of transaction"], "requires": ["debit/credit indicator"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R4", "open_term": "the nature of the transactions", "rationale": "Rule 4(a) asks for the nature but gives no categories."}},
+      {"id": "A18", "type": "DataElement", "text": "Each reported transaction carries account number, customer name and branch code.", "evidence": "account number, customer name and branch code", "concepts": ["report content"], "requires": ["account number", "customer name", "branch code"], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R4", "open_term": "information specified by the Regulator", "rationale": "Rule 4 delegates the full field list to what the Regulator specifies; these fields are not in the clause."}}
+    ],
+    "BR-09": [
+      {"id": "A19", "type": "Mapping", "text": "Transaction attributes come from CoreOne TXN_HIST.", "evidence": "CoreOne table TXN_HIST (TXN_DT, TXN_AMT, TXN_CCY, TXN_TYPE, CHNL_CD, ACCT_NO)", "concepts": ["source mapping"], "requires": [], "provides": ["transaction date", "transaction amount", "transaction currency", "transaction type", "channel", "account number"], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": null, "open_term": null, "rationale": "System mapping; outside the regulation by nature."}},
+      {"id": "A20", "type": "Mapping", "text": "Customer name comes from CUST_MASTER, joined on UCIC.", "evidence": "Customer name shall be sourced from CUST_MASTER joined on UCIC", "concepts": ["source mapping", "customer identity"], "requires": ["UCIC for each account"], "provides": ["customer name"], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": null, "open_term": null, "rationale": "System mapping; outside the regulation by nature."}}
+    ],
+    "BR-10": [
+      {"id": "A21", "type": "ReportFormat", "text": "The report uses FIU-IND's account-based XML format.", "evidence": "FIU-IND account-based XML reporting format", "concepts": ["report form"], "requires": [], "provides": [], "reg_citations": [], "named_sources": ["FIU-IND account-based XML reporting format"],
+       "judge": {"label": "refined", "clause": "R7.3", "open_term": "such form as may be directed by the Director", "rationale": "Rule 7(3) delegates the form to the Director; the atom names the resulting format."}},
+      {"id": "A22", "type": "SystemCapability", "text": "Reports must pass FIU-IND's validation utility before submission.", "evidence": "pass the FIU-IND validation utility before submission", "concepts": ["report form"], "requires": [], "provides": [], "reg_citations": [], "named_sources": ["FIU-IND validation utility"],
+       "judge": {"label": "refined", "clause": "R7.3", "open_term": "such form as may be directed by the Director", "rationale": "Validation against the directed form; the utility is not in the Rules."}}
+    ],
+    "BR-11": [
+      {"id": "A23", "type": "Deadline", "text": "Submission is due by the 15th of the following month.", "evidence": "by the 15th day of the succeeding month", "concepts": ["deadline"], "requires": [], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "stated", "clause": "R8.1", "open_term": null, "rationale": "Rule 8(1) sets the 15th of the succeeding month."}},
+      {"id": "A24", "type": "ProcessStep", "text": "A draft is produced by the 5th working day for the Principal Officer's review.", "evidence": "A draft shall be generated by the 5th working day for review by the Principal Officer", "concepts": ["review process"], "requires": [], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "none", "clause": null, "related_clause": "R7.2", "open_term": null, "rationale": "Rule 7(2) makes the Principal Officer responsible but sets no internal review timeline."}}
+    ],
+    "BR-12": [
+      {"id": "A25", "type": "ProcessStep", "text": "Errors found after submission are corrected with a replacement report.", "evidence": "corrected by filing a replacement report", "concepts": ["corrections"], "requires": [], "provides": [], "reg_citations": [], "named_sources": [],
+       "judge": {"label": "refined", "clause": "R8.4", "open_term": "rectifying a mis-reported transaction", "rationale": "Rule 8(4) penalises delay in rectifying but does not say how a correction is filed."}}
+    ]
+  }
+}

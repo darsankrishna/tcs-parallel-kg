@@ -1,0 +1,452 @@
+<title>CTR BRD Gap Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: summary strip on top, then a two-pane reader (requirement list | annotated requirement) with statute text set in serif like a rulebook. */
+:root {
+  --bg: #f4f6f9; --surface: #ffffff; --ink: #18202c; --muted: #5a6475; --line: #dbe0e8; --soft: #eef1f5;
+  --accent: #2b59c3;
+  --st-stated: #1c7f55; --st-interp: #a8680c; --st-pointer: #2c67b3; --st-hidden: #b83a34; --st-data: #6f47b5;
+  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --surface: #181d25; --ink: #e5e9f0; --muted: #9aa4b4; --line: #2a313c; --soft: #1f252f;
+    --accent: #86a8ff;
+    --st-stated: #4cc28c; --st-interp: #e3a94c; --st-pointer: #72a9f2; --st-hidden: #f07b72; --st-data: #b596f2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --surface: #181d25; --ink: #e5e9f0; --muted: #9aa4b4; --line: #2a313c; --soft: #1f252f;
+  --accent: #86a8ff;
+  --st-stated: #4cc28c; --st-interp: #e3a94c; --st-pointer: #72a9f2; --st-hidden: #f07b72; --st-data: #b596f2;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--font-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 64px; display: flex; flex-direction: column; gap: 22px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h1 { font: 600 2rem/1.15 var(--font-display); letter-spacing: -0.01em; }
+h2 { font: 600 1.35rem/1.25 var(--font-display); }
+h3 { font: 600 0.78rem/1.3 var(--font-body); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+p { margin: 0; max-width: 72ch; }
+.eyebrow { font: 500 0.75rem/1 var(--font-mono); color: var(--muted); letter-spacing: 0.04em; }
+.lede { color: var(--muted); font-size: 1rem; }
+.mono { font-family: var(--font-mono); font-size: 0.86em; }
+code { font-family: var(--font-mono); font-size: 0.86em; background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* status tokens */
+.st-stated { --st: var(--st-stated); } .st-interp { --st: var(--st-interp); } .st-pointer { --st: var(--st-pointer); }
+.st-hidden { --st: var(--st-hidden); } .st-data { --st: var(--st-data); } .st-muted { --st: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font: 500 0.74rem/1 var(--font-body); padding: 5px 8px 5px 7px; border-radius: 99px;
+  color: var(--st); background: color-mix(in srgb, var(--st) 13%, transparent); border: 1px solid color-mix(in srgb, var(--st) 35%, transparent); white-space: nowrap; }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--st); }
+.tag { font: 500 0.7rem/1 var(--font-mono); padding: 4px 6px; border-radius: 4px; background: var(--soft); color: var(--muted); white-space: nowrap; }
+
+/* profile strip */
+.profile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.profile-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; align-items: baseline; }
+.strip { display: grid; grid-template-columns: repeat(25, 1fr); gap: 3px; }
+.cell { height: 30px; border-radius: 3px; background: var(--st); border: 0; padding: 0; cursor: pointer; position: relative; }
+.cell span { position: absolute; inset: auto 0 -18px 0; font: 400 0.62rem/1 var(--font-mono); color: var(--muted); text-align: center; }
+.cell:hover, .cell:focus-visible { filter: brightness(1.12); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 16px; }
+.legend .chip b { font-weight: 600; }
+.structural { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 0.88rem; border-top: 1px solid var(--line); padding-top: 12px; }
+.structural b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* tabs */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tabs button { font: 500 0.92rem/1 var(--font-body); color: var(--muted); background: none; border: 0; padding: 12px 14px; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* requirements pane */
+.reader { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 20px; align-items: start; }
+.brlist { display: flex; flex-direction: column; gap: 4px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+.brbtn { text-align: left; background: none; border: 1px solid transparent; border-radius: var(--r); padding: 9px 10px; cursor: pointer; color: var(--ink); display: grid; grid-template-columns: 52px 1fr; gap: 2px 8px; font: inherit; }
+.brbtn:hover { background: var(--soft); }
+.brbtn[aria-current="true"] { background: var(--surface); border-color: var(--line); }
+.brbtn .id { font: 500 0.8rem/1.5 var(--font-mono); color: var(--muted); }
+.brbtn .t { font-size: 0.9rem; font-weight: 500; }
+.brbtn .dots { grid-column: 2; display: flex; gap: 3px; }
+.brbtn .dots i { width: 14px; height: 5px; border-radius: 2px; background: var(--st); }
+.detail { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.brtext { font: 400 1.06rem/1.7 var(--font-display); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.brtext mark { background: color-mix(in srgb, var(--st) 15%, transparent); color: inherit; border-bottom: 2px solid var(--st); padding: 0 1px; cursor: pointer; }
+.brtext mark sup { font: 500 0.62rem/1 var(--font-mono); color: var(--st); margin-left: 2px; }
+.graphbox { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px; }
+.graphbox svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.g-node rect { fill: var(--soft); stroke: var(--line); }
+.g-node text { fill: var(--ink); font: 400 12px var(--font-body); }
+.g-node .sub { fill: var(--muted); font: 400 10.5px var(--font-mono); }
+.g-atom rect { fill: color-mix(in srgb, var(--st) 12%, var(--surface)); stroke: var(--st); }
+.g-edge { fill: none; stroke-width: 1.6; }
+.g-colhead { fill: var(--muted); font: 600 10.5px var(--font-body); letter-spacing: 0.08em; }
+.edge-key { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+.edge-key svg { vertical-align: middle; margin-right: 4px; min-width: 0; width: 30px; }
+
+.atoms { display: flex; flex-direction: column; gap: 12px; }
+.atom { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; scroll-margin-top: 16px; }
+.atom.flash { box-shadow: 0 0 0 2px var(--st); }
+.atom-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.atom-head .aid { font: 500 0.8rem/1 var(--font-mono); color: var(--muted); }
+.atom-text { font-weight: 500; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px 22px; }
+.cols > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.warn { font-size: 0.88rem; color: var(--st-hidden); }
+details summary { cursor: pointer; font-size: 0.85rem; color: var(--accent); }
+.statute { font: 400 0.95rem/1.6 var(--font-display); border-left: 2px solid var(--line); padding-left: 12px; margin-top: 6px; color: var(--ink); }
+.srclist { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.srclist li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 0.9rem; }
+.srclist .rank { font: 500 0.72rem/1 var(--font-mono); color: var(--muted); width: 12px; }
+.srclist .hit { font: 500 0.72rem/1 var(--font-mono); color: var(--st-stated); }
+.key { font-size: 0.82rem; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+
+/* generic panels */
+.panel { display: flex; flex-direction: column; gap: 22px; }
+.block { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 0.72rem/1.2 var(--font-body); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+.bars { display: flex; flex-direction: column; gap: 3px; }
+.bar { display: grid; grid-template-columns: 34px 1fr 38px 90px; gap: 8px; align-items: center; font: 400 0.76rem/1 var(--font-mono); }
+.bar .track { position: relative; height: 12px; background: var(--soft); border-radius: 2px; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--st); border-radius: 2px; }
+.bar .thr { position: absolute; top: -3px; bottom: -3px; left: 50%; border-left: 1.5px dashed var(--ink); opacity: 0.55; }
+.bar .flag { color: var(--st-hidden); }
+pre.mermaid { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; overflow-x: auto; margin: 0; }
+ol.steps { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 8px; max-width: 80ch; }
+footer { color: var(--muted); font-size: 0.84rem; border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 820px) {
+  .reader { grid-template-columns: minmax(0, 1fr); }
+  .brlist { position: static; flex-direction: row; overflow-x: auto; }
+  .brbtn { grid-template-columns: 1fr; min-width: 150px; }
+  .brbtn .dots { grid-column: 1; }
+  .strip { grid-template-columns: repeat(13, 1fr); row-gap: 22px; }
+  h1 { font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: no-preference) { .atom { transition: box-shadow .25s; } }
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <div class="eyebrow">PROTOTYPE · PML (MAINTENANCE OF RECORDS) RULES, 2005 × ILLUSTRATIVE CTR BRD</div>
+    <h1>CTR BRD Gap Map</h1>
+    <p class="lede">A knowledge graph built from an excerpt of the Rules and a Business Requirements Document for a Cash Transaction Report engine. For every piece of knowledge in the BRD it asks: does the regulation say this? If not, what kind of knowledge filled the gap, and where inside the bank would it live?</p>
+  </header>
+
+  <section class="profile" aria-label="Knowledge provenance profile">
+    <div class="profile-head">
+      <h2 id="profile-title">Where the BRD's knowledge comes from</h2>
+      <span class="muted" id="profile-sub"></span>
+    </div>
+    <div class="strip" id="strip"></div>
+    <div class="legend" id="legend"></div>
+    <div class="structural" id="structural"></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button role="tab" id="tab-requirements" aria-controls="p-requirements">Requirements</button>
+    <button role="tab" id="tab-regulation" aria-controls="p-regulation">Regulation side</button>
+    <button role="tab" id="tab-scores" aria-controls="p-scores">How well it worked</button>
+    <button role="tab" id="tab-schema" aria-controls="p-schema">Graph schema</button>
+  </nav>
+
+  <section id="p-requirements" role="tabpanel" aria-labelledby="tab-requirements">
+    <div class="reader">
+      <div class="brlist" id="brlist" aria-label="Requirements"></div>
+      <div class="detail" id="detail"></div>
+    </div>
+  </section>
+
+  <section id="p-regulation" role="tabpanel" aria-labelledby="tab-regulation" class="panel" hidden></section>
+  <section id="p-scores" role="tabpanel" aria-labelledby="tab-scores" class="panel" hidden></section>
+
+  <section id="p-schema" role="tabpanel" aria-labelledby="tab-schema" class="panel" hidden>
+    <div class="block">
+      <h2>Three layers, one graph</h2>
+      <p class="muted">The regulation contributes the normative layer, the BRD the specification layer. The provenance layer is the part neither document writes down: which clause justifies which piece of the BRD, and where it doesn't, a Gap node pointing at candidate sources.</p>
+      <pre class="mermaid">
+flowchart LR
+  subgraph N["Normative layer (regulation)"]
+    P["Provision"] -->|DEFINES| DT["Defined term"]
+    P -->|LEAVES_OPEN| C["Concept"]
+    P -->|DELEGATES_TO| D["Delegation"]
+  end
+  subgraph S["Specification layer (BRD)"]
+    R["Requirement"] -->|HAS_ATOM| A["Knowledge atom"]
+    A -->|ABOUT| C
+    A -->|REQUIRES / PROVIDES| DE["Data element"]
+  end
+  subgraph V["Provenance layer (justification)"]
+    A -->|"SUPPORTED_BY / REFINES / RELATED_TO"| P
+    A -->|CITES_SOURCE| NS["Named source"]
+    G["Gap"] -->|ON| A
+    G -->|RESOLVABLE_BY| SC["Source candidate"]
+  end
+      </pre>
+    </div>
+    <div class="block">
+      <h2>Pipeline</h2>
+      <ol class="steps">
+        <li><b>Parse</b> the regulation into clauses and the BRD into requirements. Deterministic.</li>
+        <li><b>Decompose</b> each requirement into knowledge atoms with an exact quote as evidence (LLM, Prompt 1). The pipeline rejects any atom whose quote isn't found verbatim.</li>
+        <li><b>Judge</b> each atom against retrieved clauses: stated, refined (fills an open or delegated term), or none (LLM, Prompt 2).</li>
+        <li><b>Analyse the regulation</b>: defined terms, obligations, and delegation phrases by pattern; open terms proposed by the LLM and checked against the definitions.</li>
+        <li><b>Query the graph</b> for six gap kinds: unexplained knowledge, interpretation without authority, source named but absent, open term never filled, data never mapped, obligation with no requirement.</li>
+        <li><b>Route</b> each gap to candidate sources twice: what would justify it, and what would fulfil it. Score = type prior + text similarity + delegated authority + named-source match.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    Regulation text: PML (Maintenance of Records) Rules, 2005 as published by FIU-IND. The BRD, Sample Bank, its systems, policies and internal sources are fictional and were written for this prototype. Atom extraction and judge labels were produced by Claude following the prompts in the prototype, not by an independent model run.
+  </footer>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+
+const STATUS = {
+  stated:  { cls: "st-stated",  label: "In the regulation" },
+  interp:  { cls: "st-interp",  label: "Interpretation, no authority" },
+  pointer: { cls: "st-pointer", label: "Source named, not provided" },
+  hidden:  { cls: "st-hidden",  label: "Unexplained knowledge" },
+};
+const CAT = { REG: "The regulation", REG_GUIDANCE: "Regulator guidance", REG_FORMAT: "Regulator format spec", INT_POLICY: "Internal policy",
+  INT_DECISION: "Internal decision record", INT_SYSTEM: "System or data", INT_PROCESS: "Procedure", TACIT: "People" };
+const KIND = { DATA_UNMAPPED: ["st-data", "Data never mapped"], OPEN_TERM_UNFILLED: ["st-hidden", "Open term never filled"],
+  OBLIGATION_UNCOVERED: ["st-interp", "Obligation with no requirement"] };
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const atoms = D.requirements.flatMap(r => r.atoms.map(a => ({ ...a, br: r.id })));
+const chip = (st, text) => `<span class="chip ${STATUS[st]?.cls || st}">${esc(text ?? STATUS[st].label)}</span>`;
+const cite = c => c ? D.clauses[c].cite : "";
+const src = id => D.sources[id];
+
+/* ---------- profile ---------- */
+function renderProfile() {
+  const counts = {};
+  atoms.forEach(a => counts[a.status] = (counts[a.status] || 0) + 1);
+  const notStated = atoms.length - (counts.stated || 0);
+  document.getElementById("profile-sub").textContent =
+    `${atoms.length} knowledge atoms in ${D.requirements.length} requirements · ${notStated} not stated by the regulation`;
+  document.getElementById("strip").innerHTML = atoms.map(a =>
+    `<button class="cell ${STATUS[a.status].cls}" title="${esc(a.id + " · " + a.text)}" aria-label="${esc(a.id + ": " + STATUS[a.status].label)}" data-atom="${a.id}"><span>${a.id.slice(1)}</span></button>`).join("");
+  document.getElementById("legend").innerHTML = Object.keys(STATUS).map(k =>
+    `<span class="chip ${STATUS[k].cls}">${STATUS[k].label} <b>${counts[k] || 0}</b></span>`).join("");
+  const k = D.gap_kinds;
+  document.getElementById("structural").innerHTML =
+    `<span>Also found in the graph:</span><span><b>${k.DATA_UNMAPPED || 0}</b> data fields needed but never mapped</span>` +
+    `<span><b>${k.OPEN_TERM_UNFILLED || 0}</b> open term never filled</span><span><b>${k.OBLIGATION_UNCOVERED || 0}</b> obligations without a requirement</span>` +
+    `<span><b>${D.delegations.length}</b> places the Rules delegate to another authority</span>` +
+    `<span><b>${D.graph.nodes}</b> nodes · <b>${D.graph.edges}</b> edges</span>`;
+  document.querySelectorAll(".cell").forEach(b => b.addEventListener("click", () => goToAtom(b.dataset.atom)));
+}
+
+/* ---------- requirements ---------- */
+let current = null;
+function renderList() {
+  document.getElementById("brlist").innerHTML = D.requirements.map(r =>
+    `<button class="brbtn" data-br="${r.id}"><span class="id">${r.id}</span><span class="t">${esc(r.title)}</span>
+     <span class="dots">${r.atoms.map(a => `<i class="${STATUS[a.status].cls}" title="${a.id}"></i>`).join("")}</span></button>`).join("");
+  document.querySelectorAll(".brbtn").forEach(b => b.addEventListener("click", () => showReq(b.dataset.br)));
+}
+
+function highlight(r) {
+  const spans = r.atoms.map(a => ({ a, i: r.text.indexOf(a.evidence) })).filter(x => x.i >= 0).sort((x, y) => x.i - y.i);
+  let out = "", pos = 0;
+  for (const { a, i } of spans) {
+    if (i < pos) continue;
+    out += esc(r.text.slice(pos, i)) + `<mark class="${STATUS[a.status].cls}" data-atom="${a.id}">${esc(a.evidence)}<sup>${a.id}</sup></mark>`;
+    pos = i + a.evidence.length;
+  }
+  return out + esc(r.text.slice(pos));
+}
+
+function trunc(s, n) { return s.length > n ? s.slice(0, n - 1) + "…" : s; }
+
+function graphSVG(r) {
+  const clauseIds = [], srcIds = [];
+  const edgesL = [], edgesR = [];
+  r.atoms.forEach(a => {
+    const add = (c, kind) => { if (!c) return; if (!clauseIds.includes(c)) clauseIds.push(c); edgesL.push({ a: a.id, c, kind }); };
+    if (a.judge === "stated") add(a.clause, "supported");
+    else if (a.judge === "refined") add(a.clause, "refines");
+    else add(a.related, "related");
+    a.cites.filter(c => c !== a.clause).forEach(c => add(c, "cites"));
+    [a.justify[0], a.fulfil[0]].filter(Boolean).forEach(s => { if (!srcIds.includes(s)) srcIds.push(s); edgesR.push({ a: a.id, s }); });
+  });
+  const RH = 46, top = 34, W = 860, cx = [16, 318, 610], bw = [200, 236, 234], bh = 34;
+  const rows = Math.max(clauseIds.length, r.atoms.length, srcIds.length, 1);
+  const H = top + rows * RH + 6;
+  const y = (i, n) => top + (rows - n) * RH / 2 + i * RH;
+  const yc = Object.fromEntries(clauseIds.map((c, i) => [c, y(i, clauseIds.length)]));
+  const ya = Object.fromEntries(r.atoms.map((a, i) => [a.id, y(i, r.atoms.length)]));
+  const ys = Object.fromEntries(srcIds.map((s, i) => [s, y(i, srcIds.length)]));
+  const curve = (x1, y1, x2, y2) => `M${x1},${y1} C${(x1 + x2) / 2},${y1} ${(x1 + x2) / 2},${y2} ${x2},${y2}`;
+  const stroke = { supported: "var(--st-stated)", refines: "var(--st-interp)", related: "var(--muted)", cites: "var(--muted)" };
+  const dash = { supported: "", refines: "6 4", related: "2 4", cites: "1 3" };
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Graph neighbourhood of ${r.id}">`;
+  s += `<text class="g-colhead" x="${cx[0]}" y="16">REGULATION CLAUSES</text><text class="g-colhead" x="${cx[1]}" y="16">KNOWLEDGE ATOMS</text><text class="g-colhead" x="${cx[2]}" y="16">WHERE TO LOOK (TOP PICKS)</text>`;
+  edgesL.forEach(e => s += `<path class="g-edge" d="${curve(cx[0] + bw[0], yc[e.c] + bh / 2, cx[1], ya[e.a] + bh / 2)}" stroke="${stroke[e.kind]}" stroke-dasharray="${dash[e.kind]}"/>`);
+  edgesR.forEach(e => s += `<path class="g-edge" d="${curve(cx[1] + bw[1], ya[e.a] + bh / 2, cx[2], ys[e.s] + bh / 2)}" stroke="var(--line)" stroke-width="1.4"/>`);
+  clauseIds.forEach(c => s += `<g class="g-node"><rect x="${cx[0]}" y="${yc[c]}" width="${bw[0]}" height="${bh}" rx="5"/><text x="${cx[0] + 10}" y="${yc[c] + 21}">${esc(cite(c))}</text></g>`);
+  r.atoms.forEach(a => s += `<g class="g-node g-atom ${STATUS[a.status].cls}"><rect x="${cx[1]}" y="${ya[a.id]}" width="${bw[1]}" height="${bh}" rx="5"/><text class="sub" x="${cx[1] + 8}" y="${ya[a.id] + 14}">${a.id} · ${esc(a.type)}</text><text x="${cx[1] + 8}" y="${ya[a.id] + 28}">${esc(trunc(a.text, 36))}</text></g>`);
+  srcIds.forEach(id => s += `<g class="g-node"><rect x="${cx[2]}" y="${ys[id]}" width="${bw[2]}" height="${bh}" rx="5"/><text class="sub" x="${cx[2] + 8}" y="${ys[id] + 14}">${id} · ${esc(CAT[src(id).category])}</text><text x="${cx[2] + 8}" y="${ys[id] + 28}">${esc(trunc(src(id).title, 34))}</text></g>`);
+  if (!srcIds.length) s += `<text class="g-colhead" x="${cx[2]}" y="${top + 20}" style="text-transform:none;letter-spacing:0;font-weight:400">Nothing missing</text>`;
+  return s + `</svg>`;
+}
+
+const edgeKey = () => [["var(--st-stated)", "", "states it"], ["var(--st-interp)", "6 4", "atom fills an open term"], ["var(--muted)", "2 4", "nearest clause, no support"], ["var(--muted)", "1 3", "BRD cites the clause"]]
+  .map(([c, d, t]) => `<span><svg viewBox="0 0 30 8"><path d="M1,4 L29,4" stroke="${c}" stroke-dasharray="${d}" stroke-width="2" fill="none"/></svg>${t}</span>`).join("");
+
+function sourceList(ids, gold) {
+  if (!ids.length) return `<p class="muted">Not applicable</p>`;
+  return `<ul class="srclist">${ids.map((id, i) => `<li><span class="rank">${i + 1}</span><span>${esc(src(id).title)}</span><span class="tag">${esc(CAT[src(id).category])}</span>${gold.includes(id) ? `<span class="hit">✓ answer key</span>` : ""}</li>`).join("")}</ul>`;
+}
+
+function regLine(a) {
+  if (a.judge === "stated") return `<p><b>Stated</b> in ${esc(cite(a.clause))}.</p>`;
+  if (a.judge === "refined") return `<p><b>Fills an open term</b> in ${esc(cite(a.clause))}: <i>“${esc(a.open_term)}”</i>.</p>`;
+  return `<p><b>Not in the excerpt.</b>${a.related ? ` Nearest clause: ${esc(cite(a.related))}.` : ""}</p>`;
+}
+
+function atomCard(a) {
+  const quoteClause = a.clause || a.related;
+  const gapText = {
+    stated: "Nothing missing: the regulation carries this.",
+    interp: "The BRD settled a question the Rules leave open, and recorded no authority for the answer.",
+    pointer: "The BRD names where this came from, but that source wasn't among the documents given.",
+    hidden: "Knowledge the BRD relies on with no trace of where it came from.",
+  }[a.status];
+  return `<article class="atom ${STATUS[a.status].cls}" id="atom-${a.id}">
+    <div class="atom-head">${chip(a.status)}<span class="aid">${a.id} · ${esc(a.type)}</span>${a.severity ? `<span class="tag">${a.severity} impact</span>` : ""}</div>
+    <div class="atom-text">${esc(a.text)}</div>
+    <div class="cols">
+      <div><h3>Against the regulation</h3>${regLine(a)}<p class="muted">${esc(a.rationale)}</p>
+        ${a.overreach && a.overreach.length ? `<p class="warn">The BRD cites ${a.overreach.map(cite).join(", ")} for this, but the clause doesn't say it.</p>` : ""}
+        ${a.named.length ? `<p class="muted">BRD names: ${a.named.map(esc).join("; ")} (not among the documents given).</p>` : ""}
+        ${quoteClause ? `<details><summary>Read ${esc(cite(quoteClause))}</summary><div class="statute">${esc(D.clauses[quoteClause].text)}</div></details>` : ""}
+      </div>
+      <div><h3>What's missing</h3><p class="muted">${gapText}</p>
+        ${a.requires.length ? `<p class="muted">Needs data: ${a.requires.map(esc).join(", ")}</p>` : ""}
+        ${a.authority ? `<p class="muted">The clause delegates this, so ${esc(a.authority)} publications rank higher.</p>` : ""}
+      </div>
+    </div>
+    ${a.status !== "stated" ? `<div class="cols">
+      <div><h3>Why is it required? (justify)</h3>${sourceList(a.justify, a.gold_sources)}</div>
+      <div><h3>Where do we get it? (fulfil)</h3>${sourceList(a.fulfil, a.gold_sources)}</div></div>` : ""}
+    <div class="key">Answer key: ${esc(CAT[a.gold])}${a.gold_note ? ` · ${esc(a.gold_note)}` : ""}</div>
+  </article>`;
+}
+
+function showReq(id, focusAtom) {
+  current = id;
+  const r = D.requirements.find(x => x.id === id);
+  document.querySelectorAll(".brbtn").forEach(b => b.setAttribute("aria-current", b.dataset.br === id));
+  document.getElementById("detail").innerHTML = `
+    <div style="display:flex;flex-direction:column;gap:6px"><div class="eyebrow">${r.id}</div><h2>${esc(r.title)}</h2></div>
+    <div class="brtext">${highlight(r)}</div>
+    <div class="graphbox">${graphSVG(r)}<div class="edge-key">${edgeKey()}</div></div>
+    <div class="atoms">${r.atoms.map(atomCard).join("")}</div>`;
+  document.querySelectorAll(".brtext mark").forEach(m => m.addEventListener("click", () => flash(m.dataset.atom)));
+  if (focusAtom) flash(focusAtom);
+}
+
+function flash(aid) {
+  const el = document.getElementById("atom-" + aid);
+  if (!el) return;
+  el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1400);
+}
+
+function goToAtom(aid) {
+  const a = atoms.find(x => x.id === aid);
+  selectTab("requirements"); showReq(a.br, aid);
+}
+
+/* ---------- regulation side ---------- */
+function renderRegulation() {
+  const unfilled = new Set(D.structural.filter(g => g.kind === "OPEN_TERM_UNFILLED").map(g => g.target.replace("concept:", "")));
+  const openRows = D.open_terms.map(t => `<tr><td><i>“${esc(t.term)}”</i></td><td class="mono">${esc(cite(t.clause))}</td><td>${esc(t.why_open)}</td>
+    <td>${t.filled_by.length ? t.filled_by.map(x => `<button class="tag" data-atom="${x}" style="border:0;cursor:pointer">${x}</button>`).join(" ") : chip("hidden", "Never filled")}</td></tr>`).join("");
+  const delegRows = D.delegations.map(d => `<tr><td class="mono">${esc(cite(d.clause))}</td><td><i>“${esc(d.phrase)}”</i></td><td>${esc(d.authority)}</td><td>${esc(d.resolved_to)}</td></tr>`).join("");
+  const struct = kind => D.structural.filter(g => g.kind === kind).map(g => `<tr><td>${chip(KIND[kind][0], KIND[kind][1])}</td><td>${esc(g.summary)}</td>
+    <td>${(kind === "DATA_UNMAPPED" ? g.fulfil : g.candidates).map(c => c.source).slice(0, 2).map(id => `<div>${esc(src(id).title)}</div>`).join("")}</td></tr>`).join("");
+  document.getElementById("p-regulation").innerHTML = `
+    <div class="block"><h2>Terms the Rules leave open</h2>
+      <p class="muted">An implementer has to pin these down before writing a line of code. The model proposes candidates; the pipeline drops any the Rules define (${D.dropped.map(d => `“${esc(d.term)}”, ${esc(d.reason)}`).join("; ")}).</p>
+      <div class="tablewrap"><table><thead><tr><th>Term</th><th>Clause</th><th>Why it's open</th><th>Filled in the BRD by</th></tr></thead><tbody>${openRows}</tbody></table></div></div>
+    <div class="block"><h2>Where the Rules hand authority elsewhere</h2>
+      <p class="muted">Delegation phrases are the regulation telling you that knowledge lives outside it. Resolving who “the Director” and “the Regulator” are is itself outside the excerpt: Rule 2 points to the Act, so the prototype supplies the mapping.</p>
+      <div class="tablewrap"><table><thead><tr><th>Clause</th><th>Phrase</th><th>Authority</th><th>For a bank</th></tr></thead><tbody>${delegRows}</tbody></table></div></div>
+    <div class="block"><h2>Data the BRD needs but never maps</h2>
+      <p class="muted">Found by a graph query: data elements with incoming REQUIRES edges and no PROVIDES edge from any mapping.</p>
+      <div class="tablewrap"><table><thead><tr><th>Gap</th><th>Detail</th><th>Likely source</th></tr></thead><tbody>${struct("DATA_UNMAPPED")}</tbody></table></div></div>
+    <div class="block"><h2>Obligations and open terms with no requirement</h2>
+      <div class="tablewrap"><table><thead><tr><th>Gap</th><th>Detail</th><th>Likely source</th></tr></thead><tbody>${struct("OBLIGATION_UNCOVERED")}${struct("OPEN_TERM_UNFILLED")}</tbody></table></div></div>`;
+  document.querySelectorAll("#p-regulation [data-atom]").forEach(b => b.addEventListener("click", () => goToAtom(b.dataset.atom)));
+}
+
+/* ---------- scores ---------- */
+function renderScores() {
+  const e = D.eval, gd = e.gap_detection, ro = e.routing;
+  const row = (name, m, note) => `<tr><td>${name}</td><td class="num">${m.precision.toFixed(2)}</td><td class="num">${m.recall.toFixed(2)}</td><td class="num">${m.f1.toFixed(2)}</td><td class="muted">${note}</td></tr>`;
+  const bars = e.atoms.map(r => {
+    const ext = r.gold_origin !== "REG", pred = r.novelty >= 0.5;
+    const flag = pred && !ext ? "false alarm" : (!pred && ext ? "missed" : "");
+    return `<div class="bar ${ext ? "st-hidden" : "st-stated"}"><span>${r.atom}</span><span class="track"><span class="fill" style="width:${(r.novelty * 100).toFixed(0)}%"></span><span class="thr"></span></span><span>${r.novelty.toFixed(2)}</span><span class="flag">${flag}</span></div>`;
+  }).join("");
+  const perGap = ro.per_gap.map(g => `<tr><td class="mono">${g.gap.replace("G-", "")}</td><td>${esc(g.view)}</td><td class="mono">${g.view_top3.join(" ")}</td><td class="mono">${g.gold.join(" ")}</td><td>${g["view_hit@1"] ? chip("stated", "hit") : chip("hidden", "miss")}</td></tr>`).join("");
+  document.getElementById("p-scores").innerHTML = `
+    <div class="two">
+      <div class="block"><h2>Does the regulation state it?</h2>
+        <p class="muted">Binary task over ${e.atoms.length} atoms: flag every atom whose knowledge is not in the regulation excerpt (the answer key says ${e.atoms.filter(r => r.gold_origin !== "REG").length}).</p>
+        <div class="tablewrap"><table><thead><tr><th>Method</th><th class="num">P</th><th class="num">R</th><th class="num">F1</th><th>Read with care</th></tr></thead><tbody>
+        ${row("Lexical novelty ≥ 0.5", gd.lexical_baseline, "Honest baseline, but the synthetic BRD is full of system names that make this easy.")}
+        ${row("Graph + LLM judge", gd.graph_plus_judge, "Not a fair test: the same author wrote the labels and the answer key.")}
+        </tbody></table></div>
+        <p class="muted">The interesting part is which atoms the baseline gets wrong: A01 paraphrases the rule (“customer”, “above”, “INR”) and looks new; A17 and A12 reuse the Rules' own words (“deposit”, “withdrawal”, “transactions”) while adding knowledge. Those are the cases a semantic judge exists for.</p>
+      </div>
+      <div class="block"><h2>Lexical novelty per atom</h2>
+        <p class="muted">Share of the quote's content words that never appear in the regulation. Dashed line is the 0.5 threshold. Red bars: knowledge not in the regulation per the answer key.</p>
+        <div class="bars">${bars}</div>
+      </div>
+    </div>
+    <div class="block"><h2>Does routing point to the right source?</h2>
+      <p class="muted">${ro.n} atom gaps with a known true source. One combined ranking finds it first ${Math.round(ro["hit@1"] * ro.n)} times and in the top three ${Math.round(ro["hit@3"] * ro.n)} times. Splitting each gap into a <i>justify</i> list and a <i>fulfil</i> list finds it first ${Math.round(ro["split_view_hit@1"] * ro.n)} times and in the top three ${Math.round(ro["split_view_hit@3"] * ro.n)} times. With ${ro.n} gaps, one gap moves any rate by 5 points.</p>
+      <div class="tablewrap"><table><thead><tr><th>Atom</th><th>List</th><th>Top three</th><th>Answer key</th><th>First pick</th></tr></thead><tbody>${perGap}</tbody></table></div>
+      <p class="muted">The misses share a cause: the catalog describes documents in a sentence, so a rule buried inside the RBI Master Direction (calendar-month aggregation, internal-account exclusion) can't be matched from the description. Real routing needs a second step that searches inside the chosen source.</p>
+    </div>`;
+}
+
+/* ---------- tabs ---------- */
+const TABS = ["requirements", "regulation", "scores", "schema"];
+function selectTab(name) {
+  TABS.forEach(t => {
+    document.getElementById("tab-" + t).setAttribute("aria-selected", t === name);
+    document.getElementById("p-" + t).hidden = t !== name;
+  });
+  try { localStorage.setItem("ctrgap-tab", name); } catch (e) {}
+}
+TABS.forEach(t => document.getElementById("tab-" + t).addEventListener("click", () => selectTab(t)));
+
+renderProfile(); renderList(); renderRegulation(); renderScores();
+showReq(D.requirements[0].id);
+let start = (location.hash || "").slice(1);
+if (!TABS.includes(start)) { try { start = localStorage.getItem("ctrgap-tab") || "requirements"; } catch (e) { start = "requirements"; } }
+selectTab(TABS.includes(start) ? start : "requirements");
+</script>

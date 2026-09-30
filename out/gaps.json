@@ -1,0 +1,1460 @@
+[
+ {
+  "gap_id": "G-A03",
+  "kind": "INTERPRETATION",
+  "target": "A03",
+  "severity": "high",
+  "open_term": "within a month",
+  "refined_clause": "R3.1.B",
+  "named_sources": [],
+  "citation_overreach": [
+   "R3.1.B"
+  ],
+  "summary": "The aggregation window is the calendar month.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S15",
+    "score": 0.495
+   },
+   {
+    "source": "S06",
+    "score": 0.495
+   },
+   {
+    "source": "S11",
+    "score": 0.45
+   }
+  ],
+  "justify": [
+   {
+    "source": "S15",
+    "score": 0.495
+   },
+   {
+    "source": "S06",
+    "score": 0.495
+   },
+   {
+    "source": "S03",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S11",
+    "score": 0.45
+   },
+   {
+    "source": "S16",
+    "score": 0.22
+   },
+   {
+    "source": "S14",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A04",
+  "kind": "INTERPRETATION",
+  "target": "A04",
+  "severity": "high",
+  "open_term": "cash transaction",
+  "refined_clause": "R3.1.A",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "A cash transaction is one with CoreOne transaction type 'C'.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S08",
+    "score": 0.945
+   },
+   {
+    "source": "S07",
+    "score": 0.664
+   },
+   {
+    "source": "S14",
+    "score": 0.534
+   }
+  ],
+  "justify": [
+   {
+    "source": "S05",
+    "score": 0.48
+   },
+   {
+    "source": "S13",
+    "score": 0.44
+   },
+   {
+    "source": "S12",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.945
+   },
+   {
+    "source": "S07",
+    "score": 0.664
+   },
+   {
+    "source": "S14",
+    "score": 0.534
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A05",
+  "kind": "INTERPRETATION",
+  "target": "A05",
+  "severity": "high",
+  "open_term": "cash transaction",
+  "refined_clause": "R3.1.A",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Only Branch Teller and Cash Deposit Machine channels count as cash.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S08",
+    "score": 0.945
+   },
+   {
+    "source": "S14",
+    "score": 0.766
+   },
+   {
+    "source": "S05",
+    "score": 0.621
+   }
+  ],
+  "justify": [
+   {
+    "source": "S05",
+    "score": 0.621
+   },
+   {
+    "source": "S13",
+    "score": 0.44
+   },
+   {
+    "source": "S12",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.945
+   },
+   {
+    "source": "S14",
+    "score": 0.766
+   },
+   {
+    "source": "S07",
+    "score": 0.571
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A06",
+  "kind": "POINTER",
+  "target": "A06",
+  "severity": "medium",
+  "open_term": "cash transaction",
+  "refined_clause": "R3.1.A",
+  "named_sources": [
+   "CTR Working Group decision, 12-Mar-2025"
+  ],
+  "citation_overreach": [],
+  "summary": "Cash deposits through Cash Deposit Machines are in scope.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S05",
+    "score": 1.5
+   },
+   {
+    "source": "S12",
+    "score": 0.587
+   },
+   {
+    "source": "S04",
+    "score": 0.581
+   }
+  ],
+  "justify": [
+   {
+    "source": "S05",
+    "score": 1.5
+   },
+   {
+    "source": "S12",
+    "score": 0.587
+   },
+   {
+    "source": "S04",
+    "score": 0.581
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S16",
+    "score": 0.275
+   },
+   {
+    "source": "S08",
+    "score": 0.109
+   },
+   {
+    "source": "S14",
+    "score": 0.026
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A07",
+  "kind": "INTERPRETATION",
+  "target": "A07",
+  "severity": "high",
+  "open_term": "cash transaction",
+  "refined_clause": "R3.1.A",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "ATM cash withdrawals are excluded.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S05",
+    "score": 0.766
+   },
+   {
+    "source": "S04",
+    "score": 0.611
+   },
+   {
+    "source": "S13",
+    "score": 0.55
+   }
+  ],
+  "justify": [
+   {
+    "source": "S05",
+    "score": 0.766
+   },
+   {
+    "source": "S04",
+    "score": 0.611
+   },
+   {
+    "source": "S13",
+    "score": 0.55
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.45
+   },
+   {
+    "source": "S16",
+    "score": 0.275
+   },
+   {
+    "source": "S14",
+    "score": 0.074
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A08",
+  "kind": "INTERPRETATION",
+  "target": "A08",
+  "severity": "high",
+  "open_term": "integrally connected",
+  "refined_clause": "R3.1.B",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Connected transactions are grouped per customer across all of that customer's accounts.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S01",
+    "score": 1.0
+   },
+   {
+    "source": "S09",
+    "score": 0.659
+   },
+   {
+    "source": "S05",
+    "score": 0.578
+   }
+  ],
+  "justify": [
+   {
+    "source": "S01",
+    "score": 1.0
+   },
+   {
+    "source": "S05",
+    "score": 0.578
+   },
+   {
+    "source": "S03",
+    "score": 0.55
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S09",
+    "score": 0.659
+   },
+   {
+    "source": "S07",
+    "score": 0.433
+   },
+   {
+    "source": "S14",
+    "score": 0.301
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A09",
+  "kind": "HIDDEN",
+  "target": "A09",
+  "severity": "medium",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Customers are identified by the UCIC.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S09",
+    "score": 0.945
+   },
+   {
+    "source": "S14",
+    "score": 0.628
+   },
+   {
+    "source": "S07",
+    "score": 0.582
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 0.385
+   },
+   {
+    "source": "S15",
+    "score": 0.082
+   },
+   {
+    "source": "S01",
+    "score": 0.075
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S09",
+    "score": 0.945
+   },
+   {
+    "source": "S14",
+    "score": 0.628
+   },
+   {
+    "source": "S07",
+    "score": 0.582
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A10",
+  "kind": "INTERPRETATION",
+  "target": "A10",
+  "severity": "high",
+  "open_term": "integrally connected",
+  "refined_clause": "R3.1.B",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Debits and credits are aggregated separately, each tested against the threshold.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S01",
+    "score": 0.858
+   },
+   {
+    "source": "S05",
+    "score": 0.835
+   },
+   {
+    "source": "S15",
+    "score": 0.495
+   }
+  ],
+  "justify": [
+   {
+    "source": "S01",
+    "score": 0.858
+   },
+   {
+    "source": "S05",
+    "score": 0.835
+   },
+   {
+    "source": "S15",
+    "score": 0.495
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.44
+   },
+   {
+    "source": "S14",
+    "score": 0.439
+   },
+   {
+    "source": "S16",
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A11",
+  "kind": "HIDDEN",
+  "target": "A11",
+  "severity": "high",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Transactions below INR 50,000 inside a reportable series are not listed.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S01",
+    "score": 1.0
+   },
+   {
+    "source": "S02",
+    "score": 0.564
+   },
+   {
+    "source": "S03",
+    "score": 0.55
+   }
+  ],
+  "justify": [
+   {
+    "source": "S01",
+    "score": 1.0
+   },
+   {
+    "source": "S02",
+    "score": 0.564
+   },
+   {
+    "source": "S03",
+    "score": 0.55
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S16",
+    "score": 0.22
+   },
+   {
+    "source": "S14",
+    "score": 0.22
+   },
+   {
+    "source": "S10",
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A12",
+  "kind": "HIDDEN",
+  "target": "A12",
+  "severity": "high",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Transfers between the bank's own internal accounts are excluded.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S13",
+    "score": 0.945
+   },
+   {
+    "source": "S04",
+    "score": 0.841
+   },
+   {
+    "source": "S01",
+    "score": 0.679
+   }
+  ],
+  "justify": [
+   {
+    "source": "S13",
+    "score": 0.945
+   },
+   {
+    "source": "S04",
+    "score": 0.841
+   },
+   {
+    "source": "S01",
+    "score": 0.679
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S16",
+    "score": 0.22
+   },
+   {
+    "source": "S14",
+    "score": 0.22
+   },
+   {
+    "source": "S10",
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A14",
+  "kind": "POINTER",
+  "target": "A14",
+  "severity": "medium",
+  "open_term": "its equivalent in foreign currency",
+  "refined_clause": "R3.1.A",
+  "named_sources": [
+   "Treasury Rate Policy TRP-2023 section 3"
+  ],
+  "citation_overreach": [],
+  "summary": "The conversion uses the Treasury card rate of the transaction date.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S06",
+    "score": 1.445
+   },
+   {
+    "source": "S15",
+    "score": 0.495
+   },
+   {
+    "source": "S03",
+    "score": 0.44
+   }
+  ],
+  "justify": [
+   {
+    "source": "S06",
+    "score": 1.445
+   },
+   {
+    "source": "S15",
+    "score": 0.495
+   },
+   {
+    "source": "S03",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S16",
+    "score": 0.22
+   },
+   {
+    "source": "S08",
+    "score": 0.031
+   },
+   {
+    "source": "S07",
+    "score": 0.02
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A15",
+  "kind": "INTERPRETATION",
+  "target": "A15",
+  "severity": "high",
+  "open_term": "integrally connected",
+  "refined_clause": "R3.1.B",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Walk-in customers' cash transactions are grouped by the PAN on the voucher.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S14",
+    "score": 0.67
+   },
+   {
+    "source": "S01",
+    "score": 0.653
+   },
+   {
+    "source": "S03",
+    "score": 0.55
+   }
+  ],
+  "justify": [
+   {
+    "source": "S01",
+    "score": 0.653
+   },
+   {
+    "source": "S03",
+    "score": 0.55
+   },
+   {
+    "source": "S05",
+    "score": 0.519
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S14",
+    "score": 0.67
+   },
+   {
+    "source": "S09",
+    "score": 0.281
+   },
+   {
+    "source": "S08",
+    "score": 0.275
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A17",
+  "kind": "INTERPRETATION",
+  "target": "A17",
+  "severity": "medium",
+  "open_term": "the nature of the transactions",
+  "refined_clause": "R4",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "The nature of a transaction is expressed as deposit or withdrawal.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S08",
+    "score": 0.89
+   },
+   {
+    "source": "S02",
+    "score": 0.65
+   },
+   {
+    "source": "S07",
+    "score": 0.581
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 0.65
+   },
+   {
+    "source": "S01",
+    "score": 0.403
+   },
+   {
+    "source": "S05",
+    "score": 0.236
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.89
+   },
+   {
+    "source": "S07",
+    "score": 0.581
+   },
+   {
+    "source": "S14",
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A18",
+  "kind": "INTERPRETATION",
+  "target": "A18",
+  "severity": "medium",
+  "open_term": "information specified by the Regulator",
+  "refined_clause": "R4",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Each reported transaction carries account number, customer name and branch code.",
+  "authority": "RBI",
+  "candidates": [
+   {
+    "source": "S07",
+    "score": 0.89
+   },
+   {
+    "source": "S09",
+    "score": 0.792
+   },
+   {
+    "source": "S02",
+    "score": 0.666
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 0.666
+   },
+   {
+    "source": "S01",
+    "score": 0.568
+   },
+   {
+    "source": "S03",
+    "score": 0.22
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S07",
+    "score": 0.89
+   },
+   {
+    "source": "S09",
+    "score": 0.792
+   },
+   {
+    "source": "S08",
+    "score": 0.56
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A19",
+  "kind": "HIDDEN",
+  "target": "A19",
+  "severity": "low",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Transaction attributes come from CoreOne TXN_HIST.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S07",
+    "score": 1.0
+   },
+   {
+    "source": "S08",
+    "score": 0.844
+   },
+   {
+    "source": "S10",
+    "score": 0.632
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S07",
+    "score": 1.0
+   },
+   {
+    "source": "S08",
+    "score": 0.844
+   },
+   {
+    "source": "S10",
+    "score": 0.632
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A20",
+  "kind": "HIDDEN",
+  "target": "A20",
+  "severity": "low",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Customer name comes from CUST_MASTER, joined on UCIC.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S09",
+    "score": 1.0
+   },
+   {
+    "source": "S07",
+    "score": 0.677
+   },
+   {
+    "source": "S10",
+    "score": 0.617
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S09",
+    "score": 1.0
+   },
+   {
+    "source": "S07",
+    "score": 0.677
+   },
+   {
+    "source": "S10",
+    "score": 0.617
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A21",
+  "kind": "POINTER",
+  "target": "A21",
+  "severity": "medium",
+  "open_term": "such form as may be directed by the Director",
+  "refined_clause": "R7.3",
+  "named_sources": [
+   "FIU-IND account-based XML reporting format"
+  ],
+  "citation_overreach": [],
+  "summary": "The report uses FIU-IND's account-based XML format.",
+  "authority": "FIU-IND",
+  "candidates": [
+   {
+    "source": "S02",
+    "score": 1.8
+   },
+   {
+    "source": "S03",
+    "score": 0.726
+   },
+   {
+    "source": "S01",
+    "score": 0.392
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 1.8
+   },
+   {
+    "source": "S03",
+    "score": 0.726
+   },
+   {
+    "source": "S01",
+    "score": 0.392
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S14",
+    "score": 0.047
+   },
+   {
+    "source": "S07",
+    "score": 0.028
+   },
+   {
+    "source": "S09",
+    "score": 0.027
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A22",
+  "kind": "POINTER",
+  "target": "A22",
+  "severity": "medium",
+  "open_term": "such form as may be directed by the Director",
+  "refined_clause": "R7.3",
+  "named_sources": [
+   "FIU-IND validation utility"
+  ],
+  "citation_overreach": [],
+  "summary": "Reports must pass FIU-IND's validation utility before submission.",
+  "authority": "FIU-IND",
+  "candidates": [
+   {
+    "source": "S02",
+    "score": 1.635
+   },
+   {
+    "source": "S03",
+    "score": 1.017
+   },
+   {
+    "source": "S14",
+    "score": 0.571
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 1.635
+   },
+   {
+    "source": "S03",
+    "score": 1.017
+   },
+   {
+    "source": "S01",
+    "score": 0.169
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S14",
+    "score": 0.571
+   },
+   {
+    "source": "S10",
+    "score": 0.495
+   },
+   {
+    "source": "S09",
+    "score": 0.495
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A24",
+  "kind": "HIDDEN",
+  "target": "A24",
+  "severity": "low",
+  "open_term": null,
+  "refined_clause": null,
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "A draft is produced by the 5th working day for the Principal Officer's review.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S11",
+    "score": 0.762
+   },
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S04",
+    "score": 0.414
+   }
+  ],
+  "justify": [
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S04",
+    "score": 0.414
+   },
+   {
+    "source": "S02",
+    "score": 0.33
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S11",
+    "score": 0.762
+   },
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S14",
+    "score": 0.0
+   }
+  ]
+ },
+ {
+  "gap_id": "G-A25",
+  "kind": "INTERPRETATION",
+  "target": "A25",
+  "severity": "low",
+  "open_term": "rectifying a mis-reported transaction",
+  "refined_clause": "R8.4",
+  "named_sources": [],
+  "citation_overreach": [],
+  "summary": "Errors found after submission are corrected with a replacement report.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S02",
+    "score": 0.78
+   },
+   {
+    "source": "S11",
+    "score": 0.55
+   },
+   {
+    "source": "S15",
+    "score": 0.275
+   }
+  ],
+  "justify": [
+   {
+    "source": "S02",
+    "score": 0.78
+   },
+   {
+    "source": "S15",
+    "score": 0.275
+   },
+   {
+    "source": "S06",
+    "score": 0.275
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S11",
+    "score": 0.55
+   },
+   {
+    "source": "S08",
+    "score": 0.076
+   },
+   {
+    "source": "S07",
+    "score": 0.049
+   }
+  ]
+ },
+ {
+  "gap_id": "G-open-transaction_parties",
+  "kind": "OPEN_TERM_UNFILLED",
+  "target": "concept:transaction parties",
+  "severity": "high",
+  "clause": "R4",
+  "summary": "'the parties to the transaction' (R4) is not defined and the BRD never pins it down: Account holder only, or also a third party who deposits the cash.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S01",
+    "score": 0.734
+   },
+   {
+    "source": "S05",
+    "score": 0.638
+   },
+   {
+    "source": "S02",
+    "score": 0.591
+   }
+  ],
+  "justify": [
+   {
+    "source": "S01",
+    "score": 0.734
+   },
+   {
+    "source": "S05",
+    "score": 0.638
+   },
+   {
+    "source": "S02",
+    "score": 0.591
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 0.45
+   },
+   {
+    "source": "S07",
+    "score": 0.447
+   },
+   {
+    "source": "S09",
+    "score": 0.276
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-UCIC_for_each_account",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:UCIC for each account",
+  "severity": "medium",
+  "needed_by": [
+   "A08",
+   "A09",
+   "A20"
+  ],
+  "summary": "'UCIC for each account' is needed by A08, A09, A20 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S09",
+    "score": 1.0
+   },
+   {
+    "source": "S07",
+    "score": 0.707
+   },
+   {
+    "source": "S14",
+    "score": 0.624
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S09",
+    "score": 1.0
+   },
+   {
+    "source": "S07",
+    "score": 0.707
+   },
+   {
+    "source": "S14",
+    "score": 0.624
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-debit-credit_indicator",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:debit/credit indicator",
+  "severity": "medium",
+  "needed_by": [
+   "A10",
+   "A17"
+  ],
+  "summary": "'debit/credit indicator' is needed by A10, A17 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S08",
+    "score": 1.0
+   },
+   {
+    "source": "S10",
+    "score": 0.754
+   },
+   {
+    "source": "S07",
+    "score": 0.676
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S08",
+    "score": 1.0
+   },
+   {
+    "source": "S10",
+    "score": 0.754
+   },
+   {
+    "source": "S07",
+    "score": 0.676
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-internal_account_flag",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:internal account flag",
+  "severity": "medium",
+  "needed_by": [
+   "A12"
+  ],
+  "summary": "'internal account flag' is needed by A12 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S07",
+    "score": 0.631
+   },
+   {
+    "source": "S09",
+    "score": 0.63
+   },
+   {
+    "source": "S10",
+    "score": 0.627
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S07",
+    "score": 0.631
+   },
+   {
+    "source": "S09",
+    "score": 0.63
+   },
+   {
+    "source": "S10",
+    "score": 0.627
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-Treasury_card_rate_by_date",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:Treasury card rate by date",
+  "severity": "medium",
+  "needed_by": [
+   "A14"
+  ],
+  "summary": "'Treasury card rate by date' is needed by A14 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S10",
+    "score": 0.585
+   },
+   {
+    "source": "S08",
+    "score": 0.584
+   },
+   {
+    "source": "S07",
+    "score": 0.572
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S10",
+    "score": 0.585
+   },
+   {
+    "source": "S08",
+    "score": 0.584
+   },
+   {
+    "source": "S07",
+    "score": 0.572
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-PAN_on_voucher",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:PAN on voucher",
+  "severity": "medium",
+  "needed_by": [
+   "A15"
+  ],
+  "summary": "'PAN on voucher' is needed by A15 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S14",
+    "score": 1.0
+   },
+   {
+    "source": "S10",
+    "score": 0.583
+   },
+   {
+    "source": "S08",
+    "score": 0.574
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S14",
+    "score": 1.0
+   },
+   {
+    "source": "S10",
+    "score": 0.583
+   },
+   {
+    "source": "S08",
+    "score": 0.574
+   }
+  ]
+ },
+ {
+  "gap_id": "G-data-branch_code",
+  "kind": "DATA_UNMAPPED",
+  "target": "data:branch code",
+  "severity": "medium",
+  "needed_by": [
+   "A18"
+  ],
+  "summary": "'branch code' is needed by A18 but no mapping provides it.",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S07",
+    "score": 1.0
+   },
+   {
+    "source": "S09",
+    "score": 0.771
+   },
+   {
+    "source": "S08",
+    "score": 0.685
+   }
+  ],
+  "justify": [],
+  "fulfil": [
+   {
+    "source": "S07",
+    "score": 1.0
+   },
+   {
+    "source": "S09",
+    "score": 0.771
+   },
+   {
+    "source": "S08",
+    "score": 0.685
+   }
+  ]
+ },
+ {
+  "gap_id": "G-uncovered-R7.2",
+  "kind": "OBLIGATION_UNCOVERED",
+  "target": "R7.2",
+  "severity": "medium",
+  "summary": "No BRD requirement implements this obligation: The Principal Officer shall furnish the information referred to in clauses (A), (B), (BA), (C), (D), (E), (F) of sub-rule (1) of rule 3 to the Director on the b",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S11",
+    "score": 0.513
+   },
+   {
+    "source": "S15",
+    "score": 0.487
+   },
+   {
+    "source": "S16",
+    "score": 0.45
+   }
+  ],
+  "justify": [
+   {
+    "source": "S15",
+    "score": 0.487
+   },
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S06",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S11",
+    "score": 0.513
+   },
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S10",
+    "score": 0.048
+   }
+  ]
+ },
+ {
+  "gap_id": "G-uncovered-R11",
+  "kind": "OBLIGATION_UNCOVERED",
+  "target": "R11",
+  "severity": "low",
+  "summary": "Meta-provision: tells you who holds interpretation authority. If any question arises relating to the interpretation of these rules, the matter shall be referred to the Central Government and the decision of the Central Gov",
+  "authority": null,
+  "candidates": [
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S15",
+    "score": 0.44
+   },
+   {
+    "source": "S11",
+    "score": 0.44
+   }
+  ],
+  "justify": [
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S15",
+    "score": 0.44
+   },
+   {
+    "source": "S06",
+    "score": 0.44
+   }
+  ],
+  "fulfil": [
+   {
+    "source": "S16",
+    "score": 0.45
+   },
+   {
+    "source": "S11",
+    "score": 0.44
+   },
+   {
+    "source": "S09",
+    "score": 0.372
+   }
+  ]
+ }
+]

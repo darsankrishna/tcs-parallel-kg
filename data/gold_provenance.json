@@ -1,0 +1,30 @@
+{
+  "_note": "Answer key written when the BRD was constructed: where each atom's knowledge really came from. Used ONLY for scoring. Categories: REG = the regulation excerpt given to the system; REG_GUIDANCE = supervisory guidance not in the corpus (RBI/FIU-IND); REG_FORMAT = regulator technical specification; INT_POLICY / INT_SYSTEM / INT_DECISION / INT_PROCESS = the bank's own policies, systems/data, recorded decisions and interpretations, and procedures. gold_sources lists acceptable catalog entries (source_catalog.json).",
+  "atoms": {
+    "A01": {"origin": "REG", "gold_sources": []},
+    "A02": {"origin": "REG", "gold_sources": []},
+    "A03": {"origin": "REG_GUIDANCE", "gold_sources": ["S01"], "note": "RBI's worked example of integrally connected transactions aggregates over the calendar month."},
+    "A04": {"origin": "INT_SYSTEM", "gold_sources": ["S08", "S07"]},
+    "A05": {"origin": "INT_DECISION", "gold_sources": ["S05", "S04"]},
+    "A06": {"origin": "INT_DECISION", "gold_sources": ["S05"]},
+    "A07": {"origin": "INT_DECISION", "gold_sources": ["S04", "S05"]},
+    "A08": {"origin": "INT_DECISION", "gold_sources": ["S04", "S12"]},
+    "A09": {"origin": "INT_SYSTEM", "gold_sources": ["S09"]},
+    "A10": {"origin": "REG_GUIDANCE", "gold_sources": ["S01"], "note": "Same RBI worked example treats debits and credits separately."},
+    "A11": {"origin": "REG_GUIDANCE", "gold_sources": ["S01"], "note": "RBI 2012 master circular para 2.16(iii); validity under the current Master Direction must be re-checked."},
+    "A12": {"origin": "REG_GUIDANCE", "gold_sources": ["S01"], "note": "RBI 2012 master circular para 2.16(iv)."},
+    "A13": {"origin": "REG", "gold_sources": []},
+    "A14": {"origin": "INT_POLICY", "gold_sources": ["S06"]},
+    "A15": {"origin": "INT_DECISION", "gold_sources": ["S04", "S14"]},
+    "A16": {"origin": "REG", "gold_sources": []},
+    "A17": {"origin": "REG_FORMAT", "gold_sources": ["S02"]},
+    "A18": {"origin": "REG_FORMAT", "gold_sources": ["S02"]},
+    "A19": {"origin": "INT_SYSTEM", "gold_sources": ["S07", "S10"]},
+    "A20": {"origin": "INT_SYSTEM", "gold_sources": ["S07", "S09", "S10"]},
+    "A21": {"origin": "REG_FORMAT", "gold_sources": ["S02"]},
+    "A22": {"origin": "REG_FORMAT", "gold_sources": ["S02"]},
+    "A23": {"origin": "REG", "gold_sources": []},
+    "A24": {"origin": "INT_PROCESS", "gold_sources": ["S11"]},
+    "A25": {"origin": "REG_FORMAT", "gold_sources": ["S02"]}
+  }
+}

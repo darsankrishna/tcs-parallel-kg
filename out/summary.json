@@ -1,0 +1,672 @@
+{
+ "clauses": 11,
+ "requirements": 12,
+ "atoms": 25,
+ "evidence_problems": [],
+ "defined_terms": {
+  "director": "R2.1.c",
+  "principal officer": "R2.1.f",
+  "transaction": "R2.1.h"
+ },
+ "obligations": [
+  "R3.1.A",
+  "R3.1.B",
+  "R4",
+  "R7.2",
+  "R7.3",
+  "R8.1",
+  "R8.4",
+  "R11"
+ ],
+ "delegations": [
+  {
+   "clause": "R4",
+   "phrase": "specified by the Regulator",
+   "authority": "Regulator",
+   "resolved_to": "RBI"
+  },
+  {
+   "clause": "R7.3",
+   "phrase": "guidelines issued by the Director",
+   "authority": "Director",
+   "resolved_to": "FIU-IND"
+  },
+  {
+   "clause": "R7.3",
+   "phrase": "as may be directed by the Director",
+   "authority": "Director",
+   "resolved_to": "FIU-IND"
+  },
+  {
+   "clause": "R11",
+   "phrase": "referred to the Central Government",
+   "authority": "Central Government",
+   "resolved_to": "Government of India"
+  }
+ ],
+ "open_terms": [
+  "cash transaction",
+  "integrally connected",
+  "within a month",
+  "its equivalent in foreign currency",
+  "the nature of the transactions",
+  "the parties to the transaction"
+ ],
+ "dropped_terms": [
+  {
+   "term": "transaction",
+   "concept": "transaction",
+   "clause": "R3.1.A",
+   "why_open": "Proposed by the model; the pipeline should find it is defined in Rule 2(1)(h) and drop it.",
+   "reason": "defined in R2.1.h"
+  }
+ ],
+ "judge_profile": {
+  "stated": 5,
+  "refined": 14,
+  "none": 6
+ },
+ "gold_profile": {
+  "REG": 5,
+  "REG_GUIDANCE": 4,
+  "INT_SYSTEM": 4,
+  "INT_DECISION": 5,
+  "INT_POLICY": 1,
+  "REG_FORMAT": 5,
+  "INT_PROCESS": 1
+ },
+ "gap_kinds": {
+  "INTERPRETATION": 10,
+  "POINTER": 4,
+  "HIDDEN": 6,
+  "OPEN_TERM_UNFILLED": 1,
+  "DATA_UNMAPPED": 6,
+  "OBLIGATION_UNCOVERED": 2
+ },
+ "graph": {
+  "nodes": 131,
+  "edges": 246,
+  "node_kinds": {
+   "Provision": 11,
+   "DefinedTerm": 3,
+   "Concept": 14,
+   "Delegation": 4,
+   "Requirement": 12,
+   "Atom": 25,
+   "DataElement": 13,
+   "NamedSource": 4,
+   "Gap": 29,
+   "SourceCandidate": 16
+  }
+ },
+ "evaluation": {
+  "atoms": [
+   {
+    "atom": "A01",
+    "gold_origin": "REG",
+    "judge": "stated",
+    "novelty": 0.62
+   },
+   {
+    "atom": "A02",
+    "gold_origin": "REG",
+    "judge": "stated",
+    "novelty": 0.33
+   },
+   {
+    "atom": "A03",
+    "gold_origin": "REG_GUIDANCE",
+    "judge": "refined",
+    "novelty": 0.5
+   },
+   {
+    "atom": "A04",
+    "gold_origin": "INT_SYSTEM",
+    "judge": "refined",
+    "novelty": 0.67
+   },
+   {
+    "atom": "A05",
+    "gold_origin": "INT_DECISION",
+    "judge": "refined",
+    "novelty": 0.67
+   },
+   {
+    "atom": "A06",
+    "gold_origin": "INT_DECISION",
+    "judge": "refined",
+    "novelty": 0.67
+   },
+   {
+    "atom": "A07",
+    "gold_origin": "INT_DECISION",
+    "judge": "refined",
+    "novelty": 0.5
+   },
+   {
+    "atom": "A08",
+    "gold_origin": "INT_DECISION",
+    "judge": "refined",
+    "novelty": 0.5
+   },
+   {
+    "atom": "A09",
+    "gold_origin": "INT_SYSTEM",
+    "judge": "none",
+    "novelty": 1.0
+   },
+   {
+    "atom": "A10",
+    "gold_origin": "REG_GUIDANCE",
+    "judge": "refined",
+    "novelty": 0.75
+   },
+   {
+    "atom": "A11",
+    "gold_origin": "REG_GUIDANCE",
+    "judge": "none",
+    "novelty": 0.5
+   },
+   {
+    "atom": "A12",
+    "gold_origin": "REG_GUIDANCE",
+    "judge": "none",
+    "novelty": 0.38
+   },
+   {
+    "atom": "A13",
+    "gold_origin": "REG",
+    "judge": "stated",
+    "novelty": 0.29
+   },
+   {
+    "atom": "A14",
+    "gold_origin": "INT_POLICY",
+    "judge": "refined",
+    "novelty": 0.6
+   },
+   {
+    "atom": "A15",
+    "gold_origin": "INT_DECISION",
+    "judge": "refined",
+    "novelty": 0.67
+   },
+   {
+    "atom": "A16",
+    "gold_origin": "REG",
+    "judge": "stated",
+    "novelty": 0.0
+   },
+   {
+    "atom": "A17",
+    "gold_origin": "REG_FORMAT",
+    "judge": "refined",
+    "novelty": 0.0
+   },
+   {
+    "atom": "A18",
+    "gold_origin": "REG_FORMAT",
+    "judge": "refined",
+    "novelty": 0.8
+   },
+   {
+    "atom": "A19",
+    "gold_origin": "INT_SYSTEM",
+    "judge": "none",
+    "novelty": 1.0
+   },
+   {
+    "atom": "A20",
+    "gold_origin": "INT_SYSTEM",
+    "judge": "none",
+    "novelty": 0.86
+   },
+   {
+    "atom": "A21",
+    "gold_origin": "REG_FORMAT",
+    "judge": "refined",
+    "novelty": 0.71
+   },
+   {
+    "atom": "A22",
+    "gold_origin": "REG_FORMAT",
+    "judge": "refined",
+    "novelty": 1.0
+   },
+   {
+    "atom": "A23",
+    "gold_origin": "REG",
+    "judge": "stated",
+    "novelty": 0.0
+   },
+   {
+    "atom": "A24",
+    "gold_origin": "INT_PROCESS",
+    "judge": "none",
+    "novelty": 0.56
+   },
+   {
+    "atom": "A25",
+    "gold_origin": "REG_FORMAT",
+    "judge": "refined",
+    "novelty": 0.75
+   }
+  ],
+  "gap_detection": {
+   "lexical_baseline": {
+    "tp": 18,
+    "fp": 1,
+    "fn": 2,
+    "precision": 0.95,
+    "recall": 0.9,
+    "f1": 0.92
+   },
+   "graph_plus_judge": {
+    "tp": 20,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   }
+  },
+  "routing": {
+   "n": 20,
+   "hit@1": 0.7,
+   "hit@3": 0.9,
+   "top1_category_match": 0.7,
+   "split_view_hit@1": 0.8,
+   "split_view_hit@3": 0.85,
+   "per_gap": [
+    {
+     "gap": "G-A03",
+     "top3": [
+      "S15",
+      "S06",
+      "S11"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S15",
+      "S06",
+      "S03"
+     ],
+     "gold": [
+      "S01"
+     ],
+     "hit@1": false,
+     "view_hit@1": false
+    },
+    {
+     "gap": "G-A04",
+     "top3": [
+      "S08",
+      "S07",
+      "S14"
+     ],
+     "view": "fulfil",
+     "view_top3": [
+      "S08",
+      "S07",
+      "S14"
+     ],
+     "gold": [
+      "S08",
+      "S07"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A05",
+     "top3": [
+      "S08",
+      "S14",
+      "S05"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S05",
+      "S13",
+      "S12"
+     ],
+     "gold": [
+      "S05",
+      "S04"
+     ],
+     "hit@1": false,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A06",
+     "top3": [
+      "S05",
+      "S12",
+      "S04"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S05",
+      "S12",
+      "S04"
+     ],
+     "gold": [
+      "S05"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A07",
+     "top3": [
+      "S05",
+      "S04",
+      "S13"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S05",
+      "S04",
+      "S13"
+     ],
+     "gold": [
+      "S04",
+      "S05"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A08",
+     "top3": [
+      "S01",
+      "S09",
+      "S05"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S01",
+      "S05",
+      "S03"
+     ],
+     "gold": [
+      "S04",
+      "S12"
+     ],
+     "hit@1": false,
+     "view_hit@1": false
+    },
+    {
+     "gap": "G-A09",
+     "top3": [
+      "S09",
+      "S14",
+      "S07"
+     ],
+     "view": "fulfil",
+     "view_top3": [
+      "S09",
+      "S14",
+      "S07"
+     ],
+     "gold": [
+      "S09"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A10",
+     "top3": [
+      "S01",
+      "S05",
+      "S15"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S01",
+      "S05",
+      "S15"
+     ],
+     "gold": [
+      "S01"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A11",
+     "top3": [
+      "S01",
+      "S02",
+      "S03"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S01",
+      "S02",
+      "S03"
+     ],
+     "gold": [
+      "S01"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A12",
+     "top3": [
+      "S13",
+      "S04",
+      "S01"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S13",
+      "S04",
+      "S01"
+     ],
+     "gold": [
+      "S01"
+     ],
+     "hit@1": false,
+     "view_hit@1": false
+    },
+    {
+     "gap": "G-A14",
+     "top3": [
+      "S06",
+      "S15",
+      "S03"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S06",
+      "S15",
+      "S03"
+     ],
+     "gold": [
+      "S06"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A15",
+     "top3": [
+      "S14",
+      "S01",
+      "S03"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S01",
+      "S03",
+      "S05"
+     ],
+     "gold": [
+      "S04",
+      "S14"
+     ],
+     "hit@1": true,
+     "view_hit@1": false
+    },
+    {
+     "gap": "G-A17",
+     "top3": [
+      "S08",
+      "S02",
+      "S07"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S02",
+      "S01",
+      "S05"
+     ],
+     "gold": [
+      "S02"
+     ],
+     "hit@1": false,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A18",
+     "top3": [
+      "S07",
+      "S09",
+      "S02"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S02",
+      "S01",
+      "S03"
+     ],
+     "gold": [
+      "S02"
+     ],
+     "hit@1": false,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A19",
+     "top3": [
+      "S07",
+      "S08",
+      "S10"
+     ],
+     "view": "fulfil",
+     "view_top3": [
+      "S07",
+      "S08",
+      "S10"
+     ],
+     "gold": [
+      "S07",
+      "S10"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A20",
+     "top3": [
+      "S09",
+      "S07",
+      "S10"
+     ],
+     "view": "fulfil",
+     "view_top3": [
+      "S09",
+      "S07",
+      "S10"
+     ],
+     "gold": [
+      "S07",
+      "S09",
+      "S10"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A21",
+     "top3": [
+      "S02",
+      "S03",
+      "S01"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S02",
+      "S03",
+      "S01"
+     ],
+     "gold": [
+      "S02"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A22",
+     "top3": [
+      "S02",
+      "S03",
+      "S14"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S02",
+      "S03",
+      "S01"
+     ],
+     "gold": [
+      "S02"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A24",
+     "top3": [
+      "S11",
+      "S16",
+      "S04"
+     ],
+     "view": "fulfil",
+     "view_top3": [
+      "S11",
+      "S16",
+      "S14"
+     ],
+     "gold": [
+      "S11"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    },
+    {
+     "gap": "G-A25",
+     "top3": [
+      "S02",
+      "S11",
+      "S15"
+     ],
+     "view": "justify",
+     "view_top3": [
+      "S02",
+      "S15",
+      "S06"
+     ],
+     "gold": [
+      "S02"
+     ],
+     "hit@1": true,
+     "view_hit@1": true
+    }
+   ]
+  }
+ }
+}
